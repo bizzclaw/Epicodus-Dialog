@@ -10,29 +10,53 @@ namespace Dialog.Models
     public int ThreadId {get; set;}
     public string Subject {get; set;}
     public string Message {get; set;}
-    public string Poster {get; set;}
-    public string Image {get; set;}
+    public string Author {get; set;}
+    public string Avatar {get; set;}
 
-    public Post(int id = 0, int threadId = 0, string subject = "--", string message = "...", string poster = "Anonymous", string image = "")
+    public Post(int id = 0, int threadId = 0, string subject = "--", string message = "...", string author = "Anonymous", string avatar = "")
     {
       Id = id;
       ThreadId = threadId;
       Subject = subject;
       Message = message;
-      Poster = poster;
-      Image = image;
+      Author = author;
+      Avatar = avatar;
     }
 
     public void Save()
     {
-      Query savePost = new Query("INSERT INTO POSTS (thread_id, subject, message, poster, image) VALUES(@ThreadId, @Subject, @Message, @Poster, @Image)");
+      Query savePost = new Query("INSERT INTO POSTS (thread_id, subject, message, author, avatar) VALUES(@ThreadId, @Subject, @Message, @Author, @Avatar)");
       savePost.AddParameter("@ThreadId", ThreadId.ToString());
       savePost.AddParameter("@Subject", Subject);
       savePost.AddParameter("@Message", Message);
-      savePost.AddParameter("@Poster", Poster);
-      savePost.AddParameter("@Image", Image);
+      savePost.AddParameter("@Author", Author);
+      savePost.AddParameter("@Avatar", Avatar);
       savePost.Execute();
-      Console.WriteLine("SUBJECT: " + Subject);
+      Id = (int)savePost.GetCommand().LastInsertedId;
+    }
+
+    public static Post Find(int id)
+    {
+      Query findPost = new Query("SELECT * FROM posts WHERE id = @Id");
+      findPost.AddParameter("@Id", id.ToString());
+      var rdr = findPost.Read();
+      int threadId = 0;
+      string subject = "";
+      string message = "";
+      string author = "";
+      string avatar = "";
+
+      while (rdr.Read())
+      {
+        threadId = rdr.GetInt32(1);
+        subject = rdr.GetString(2);
+        message = rdr.GetString(3);
+        author = rdr.GetString(4);
+        avatar = rdr.GetString(5);
+      }
+
+      Post foundPost = new Post(id, threadId, subject, message, author, avatar);
+      return foundPost;
     }
 
     public static List<Post> GetAll()
@@ -47,10 +71,10 @@ namespace Dialog.Models
         int threadId = rdr.GetInt32(1);
         string subject = rdr.GetString(2);
         string message = rdr.GetString(3);
-        string poster = rdr.GetString(4);
-        string image = rdr.GetString(5);
+        string author = rdr.GetString(4);
+        string avatar = rdr.GetString(5);
 
-        Post memberPost = new Post(id, threadId, subject, message, poster, image);
+        Post memberPost = new Post(id, threadId, subject, message, author, avatar);
 
         allPosts.Add(memberPost);
       }

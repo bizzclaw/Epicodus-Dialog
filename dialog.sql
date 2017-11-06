@@ -21,8 +21,8 @@ CREATE TABLE `posts` (
   `thread_id` INTEGER NULL DEFAULT NULL,
   `subject` VARCHAR(255) DEFAULT 'Reply',
   `message` TEXT NULL DEFAULT NULL,
-  `poster` VARCHAR(40) NULL DEFAULT 'Anonymous',
-  `image` TEXT NULL DEFAULT NULL,
+  `author` VARCHAR(40) NULL DEFAULT 'Anonymous',
+  `avatar` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -71,7 +71,7 @@ CREATE TABLE `groups` (
 -- Test Data
 -- ---
 
--- INSERT INTO `posts` (`id`,`thread_id`,`subject`,`message`,`poster`,`image`) VALUES
+-- INSERT INTO `posts` (`id`,`thread_id`,`subject`,`message`,`author`,`avatar`) VALUES
 -- ('','','','','','');
 -- INSERT INTO `threads` (`id`,`groups_id`) VALUES
 -- ('','');
