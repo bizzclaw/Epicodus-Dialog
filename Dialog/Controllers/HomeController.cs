@@ -12,5 +12,11 @@ namespace Dialog.Controllers
       {
         return View();
       }
+
+      [HttpGet("/thread")]
+      public ActionResult Thread()
+      {
+        return View();
+      }
     }
 }
