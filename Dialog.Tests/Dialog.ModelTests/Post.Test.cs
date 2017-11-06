@@ -44,5 +44,15 @@ namespace Dialog.Models.Tests
       Assert.AreEqual(1, allPosts.Count);
     }
 
+    [TestMethod]
+    public void Find_PostContentMatchesPostInDB_true()
+    {
+      Post firstPost = new Post(0,0, "First Post!", "This is the first post EVER posted on THIS forum YAY", "First user");
+      firstPost.Save();
+
+      Post findPost = Post.Find(firstPost.Id);
+      Assert.AreEqual(firstPost.Subject, findPost.Subject);
+    }
+
   }
 }
