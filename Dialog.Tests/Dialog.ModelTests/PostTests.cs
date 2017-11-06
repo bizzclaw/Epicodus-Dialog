@@ -6,14 +6,14 @@ using Dialog.Models;
 namespace Dialog.Models.Tests
 {
   [TestClass]
-  public class PostTest : IDisposable
+  public class PostTests : IDisposable
   {
 
     public void Dispose()
     {
     }
 
-    public PostTest()
+    public PostTests()
     {
       DB.DatabaseTest();
       Post.ClearAll();

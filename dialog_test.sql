@@ -35,18 +35,18 @@ DROP TABLE IF EXISTS `threads`;
 
 CREATE TABLE `threads` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `groups_id` INTEGER NULL DEFAULT NULL,
+  `topic_id` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
 -- ---
--- Table 'groups'
+-- Table 'topics'
 --
 -- ---
 
-DROP TABLE IF EXISTS `groups`;
+DROP TABLE IF EXISTS `topics`;
 
-CREATE TABLE `groups` (
+CREATE TABLE `topics` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
   `topic` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -57,7 +57,7 @@ CREATE TABLE `groups` (
 -- ---
 
 -- ALTER TABLE `posts` ADD FOREIGN KEY (thread_id) REFERENCES `threads` (`id`);
--- ALTER TABLE `threads` ADD FOREIGN KEY (groups_id) REFERENCES `groups` (`id`);
+-- ALTER TABLE `threads` ADD FOREIGN KEY (topics_id) REFERENCES `topics` (`id`);
 
 -- ---
 -- Table Properties
@@ -65,7 +65,7 @@ CREATE TABLE `groups` (
 
 -- ALTER TABLE `posts` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `threads` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `groups` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `topics` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
@@ -73,7 +73,7 @@ CREATE TABLE `groups` (
 
 -- INSERT INTO `posts` (`id`,`thread_id`,`subject`,`message`,`author`,`avatar`) VALUES
 -- ('','','','','','');
--- INSERT INTO `threads` (`id`,`groups_id`) VALUES
+-- INSERT INTO `threads` (`id`,`topics_id`) VALUES
 -- ('','');
--- INSERT INTO `groups` (`id`,`topic`) VALUES
+-- INSERT INTO `topics` (`id`,`topic`) VALUES
 -- ('','');
