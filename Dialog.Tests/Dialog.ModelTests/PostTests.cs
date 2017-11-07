@@ -37,7 +37,7 @@ namespace Dialog.Models.Tests
     [TestMethod]
     public void Save_SavePostToDatabase_1()
     {
-      Post firstPost = new Post(0,0, "First Post!", "This is the first post EVER posted on THIS forum YAY", "First user");
+      Post firstPost = new Post(0,0, "First Post!", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
       firstPost.Save();
 
       List<Post> allPosts = Post.GetAll();
@@ -47,7 +47,7 @@ namespace Dialog.Models.Tests
     [TestMethod]
     public void Find_PostContentMatchesPostInDB_true()
     {
-      Post firstPost = new Post(0,0, "First Post!", "This is the first post EVER posted on THIS forum YAY", "First user");
+      Post firstPost = new Post(0,0, "First Post!", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
       firstPost.Save();
 
       Post findPost = Post.Find(firstPost.Id);

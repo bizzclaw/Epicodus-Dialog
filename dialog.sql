@@ -21,6 +21,7 @@ CREATE TABLE `posts` (
   `thread_id` INTEGER NULL DEFAULT NULL,
   `subject` VARCHAR(255) DEFAULT 'Reply',
   `message` TEXT NULL DEFAULT NULL,
+  `date` DATETIME NULL DEFAULT NULL,
   `author` VARCHAR(40) NULL DEFAULT 'Anonymous',
   `avatar` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)

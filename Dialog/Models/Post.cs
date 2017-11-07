@@ -10,25 +10,28 @@ namespace Dialog.Models
     public int ThreadId {get; set;}
     public string Subject {get; set;}
     public string Message {get; set;}
+    public string Date {get; set;}
     public string Author {get; set;}
     public string Avatar {get; set;}
 
-    public Post(int id = 0, int threadId = 0, string subject = "--", string message = "...", string author = "Anonymous", string avatar = "")
+    public Post(int id = 0, int threadId = 0, string subject = "--", string message = "...", string date, string author = "Anonymous", string avatar = "")
     {
       Id = id;
       ThreadId = threadId;
       Subject = subject;
       Message = message;
+      Date = date;
       Author = author;
       Avatar = avatar;
     }
 
     public void Save()
     {
-      Query savePost = new Query("INSERT INTO POSTS (thread_id, subject, message, author, avatar) VALUES(@ThreadId, @Subject, @Message, @Author, @Avatar)");
+      Query savePost = new Query("INSERT INTO POSTS (thread_id, subject, message, date, author, avatar) VALUES(@ThreadId, @Subject, @Message, @Date, @Author, @Avatar)");
       savePost.AddParameter("@ThreadId", ThreadId.ToString());
       savePost.AddParameter("@Subject", Subject);
       savePost.AddParameter("@Message", Message);
+      savePost.AddParameter("@Date", Date);
       savePost.AddParameter("@Author", Author);
       savePost.AddParameter("@Avatar", Avatar);
       savePost.Execute();
@@ -51,11 +54,12 @@ namespace Dialog.Models
         threadId = rdr.GetInt32(1);
         subject = rdr.GetString(2);
         message = rdr.GetString(3);
-        author = rdr.GetString(4);
-        avatar = rdr.GetString(5);
+        date = rdr.GetString(4);
+        author = rdr.GetString(5);
+        avatar = rdr.GetString(6);
       }
 
-      Post foundPost = new Post(id, threadId, subject, message, author, avatar);
+      Post foundPost = new Post(id, threadId, subject, message, date, author, avatar);
       return foundPost;
     }
 
@@ -71,10 +75,11 @@ namespace Dialog.Models
         int threadId = rdr.GetInt32(1);
         string subject = rdr.GetString(2);
         string message = rdr.GetString(3);
-        string author = rdr.GetString(4);
-        string avatar = rdr.GetString(5);
+        string date = rdr.GetString(4);
+        string author = rdr.GetString(5);
+        string avatar = rdr.GetString(6);
 
-        Post memberPost = new Post(id, threadId, subject, message, author, avatar);
+        Post memberPost = new Post(id, threadId, subject, message, author, date, avatar);
 
         allPosts.Add(memberPost);
       }

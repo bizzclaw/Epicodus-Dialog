@@ -17,5 +17,11 @@ namespace Dialog.Models
 			// DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=dialog_test;";
 			DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=dialog_test;";
 		}
+
+    public static string GetNow()
+    {
+      DateTime currentDate = DateTime.Now;
+      return currentDate.ToString("yyy-MM-dd HH:mm:ss");
+    }
   }
 }
