@@ -46,6 +46,23 @@ namespace Dialog.Models
       return threadPosts;
     }
 
+    public void ClearPosts()
+    {
+      Query clearPosts = new Query("DELETE FROM posts WHERE thread_id = @ThreadId");
+      clearPosts.AddParameter("@ThreadId", Id.ToString());
+      clearPosts.Execute();
+    }
+
+    public void Delete()
+    {
+      Query DeleteThread = new Query(@"
+        DELETE FROM posts WHERE thread_id = @ThreadId;
+        DELETE FROM threads WHERE id = @ThreadId
+      ");
+      DeleteThread.AddParameter("@ThreadId", Id.ToString());
+      DeleteThread.Execute();
+    }
+
     public static Thread Find(int id)
     {
       Query findThread = new Query("SELECT * FROM threads WHERE id = @Id");

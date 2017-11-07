@@ -68,5 +68,33 @@ namespace Dialog.Models.Tests
       List<Post> threadPosts = testThread.GetPosts();
       Assert.AreEqual(testPost.Subject, threadPosts[0].Subject);
     }
+
+    [TestMethod]
+    public void ClearPosts_PostCountsInThreadIsZero_0()
+    {
+      Thread testThread = new Thread(0);
+      testThread.Save();
+
+      Post testPost = new Post(0,testThread.Id, "Good Post", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
+      testPost.Save();
+
+      testThread.ClearPosts();
+
+      List<Post> threadPosts = testThread.GetPosts();
+      Assert.AreEqual(0, threadPosts.Count);
+    }
+
+    [TestMethod]
+    public void Delete_ThreadTopicIdCanBeFOundAfterDeletion_false()
+    {
+      Thread testThread = new Thread(0, 158);
+      testThread.Save();
+
+      int threadId = testThread.Id;
+      testThread.Delete();
+
+      Thread findThread = Thread.Find(threadId);
+      Assert.AreNotEqual(testThread.TopicId, findThread.TopicId); // the found thread's TopicId will default to 0 because it can't be found
+    }
   }
 }
