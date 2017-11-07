@@ -55,7 +55,7 @@ namespace Dialog.Models
         threadId = rdr.GetInt32(1);
         subject = rdr.GetString(2);
         message = rdr.GetString(3);
-        date = rdr.GetString(4);
+        date = rdr.GetDateTime(4).ToString();
         author = rdr.GetString(5);
         avatar = rdr.GetString(6);
       }
@@ -76,7 +76,7 @@ namespace Dialog.Models
         int threadId = rdr.GetInt32(1);
         string subject = rdr.GetString(2);
         string message = rdr.GetString(3);
-        string date = rdr.GetString(4);
+        string date = rdr.GetDateTime(4).ToString();
         string author = rdr.GetString(5);
         string avatar = rdr.GetString(6);
 

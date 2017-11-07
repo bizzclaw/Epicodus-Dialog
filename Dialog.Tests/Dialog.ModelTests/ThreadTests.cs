@@ -54,5 +54,19 @@ namespace Dialog.Models.Tests
       Assert.AreEqual(firstThread.TopicId, findThread.TopicId);
     }
 
+    [TestMethod]
+    public void GetPost_PostInThreadMatchesReference_true()
+    {
+      Thread testThread = new Thread(0);
+      testThread.Save();
+
+      Post dummyPost = new Post(0,0, "Bad Post", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
+      Post testPost = new Post(0,testThread.Id, "Good Post", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
+      dummyPost.Save();
+      testPost.Save();
+
+      List<Post> threadPosts = testThread.GetPosts();
+      Assert.AreEqual(testPost.Subject, threadPosts[0].Subject);
+    }
   }
 }

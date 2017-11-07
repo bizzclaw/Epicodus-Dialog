@@ -22,6 +22,30 @@ namespace Dialog.Models
       Id = (int)saveThread.GetCommand().LastInsertedId;
     }
 
+    public List<Post> GetPosts()
+    {
+      Query getThreadPosts = new Query("SELECT * FROM POSTS WHERE thread_id = @ThreadId");
+      getThreadPosts.AddParameter("@ThreadId", Id.ToString());
+      List<Post> threadPosts = new List<Post> {};
+
+      var rdr = getThreadPosts.Read();
+      while (rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        int threadId = rdr.GetInt32(1);
+        string subject = rdr.GetString(2);
+        string message = rdr.GetString(3);
+        string date = rdr.GetDateTime(4).ToString();
+        string author = rdr.GetString(5);
+        string avatar = rdr.GetString(6);
+
+        Post memberPost = new Post(id, threadId, subject, message, author, date, avatar);
+
+        threadPosts.Add(memberPost);
+      }
+      return threadPosts;
+    }
+
     public static Thread Find(int id)
     {
       Query findThread = new Query("SELECT * FROM threads WHERE id = @Id");
