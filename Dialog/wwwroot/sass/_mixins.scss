@@ -1,0 +1,32 @@
+//flex
+
+@mixin flex-row-around {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin flex-row-between {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+//gradients
+
+@mixin light-grey-gr {
+  background: linear-gradient(to bottom, #BDBDBD 0%, #eeeeee 100%);
+}
+
+@mixin orange-gr {
+  background: linear-gradient(to bottom, #dd2c00 0%, #e65100 100%);
+}

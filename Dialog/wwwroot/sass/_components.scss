@@ -1,0 +1,38 @@
+//all buttons
+
+button {
+  height: 40px;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: 2px 2px 3px #d3d3d3;
+  border: 2px solid transparent;
+}
+
+@mixin input-color {
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $lightGrey;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+  color: $lightGrey;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+  color: $lightGrey;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+  color: $lightGrey;
+  }
+}
+
+@mixin Search-icon       {
+  .InputAddOn-item {
+        display: flex;
+        align-items: center;
+        background-color: $darkGrey;
+        padding: 0.5em 0.75em;
+        color: white;
+      }
+}
+//start a new dialog
+// .new-dialog {
+//   background-color:
+// }
