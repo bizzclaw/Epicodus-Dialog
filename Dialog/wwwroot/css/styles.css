@@ -1,3 +1,10 @@
+button {
+  height: 40px;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: 2px 2px 3px #d3d3d3;
+  border: 2px solid transparent; }
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +14,7 @@ html, body {
   height: 100%; }
 
 body {
-  background-color: #dedfe0; }
+  background: linear-gradient(to bottom, #BDBDBD 0%, #eeeeee 100%); }
 
 ul {
   display: flex;
@@ -26,7 +33,7 @@ ul {
   display: none; }
 
 .masthead-wrap {
-  background-color: #0F53B2;
+  background-color: #168914;
   color: white; }
   .masthead-wrap .header-wrap {
     display: flex;
@@ -34,13 +41,13 @@ ul {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 1000px;
-    height: 200px;
+    max-width: 1000px;
+    height: 150px;
     margin: auto; }
 
 .content-wrap {
-  width: 1000px;
-  height: calc(100% - 400px);
+  max-width: 1000px;
+  height: calc(100% - 250px);
   margin: auto;
   background-color: white; }
   .content-wrap .options {
@@ -51,7 +58,37 @@ ul {
     align-items: center;
     background-color: #EEEEEE;
     min-height: 100px;
-    padding: 0 20px; }
+    padding: 0px 20px; }
+    .content-wrap .options .InputAddOn-Search {
+      display: flex;
+      align-items: stretch;
+      max-width: 300px;
+      height: 40px; }
+      .content-wrap .options .InputAddOn-Search ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: #c1c1c1; }
+      .content-wrap .options .InputAddOn-Search ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #c1c1c1; }
+      .content-wrap .options .InputAddOn-Search :-ms-input-placeholder {
+        /* IE 10+ */
+        color: #c1c1c1; }
+      .content-wrap .options .InputAddOn-Search :-moz-placeholder {
+        /* Firefox 18- */
+        color: #c1c1c1; }
+      .content-wrap .options .InputAddOn-Search input[type=text]:focus {
+        border: 5px inset #e65100;
+        outline: 0 none; }
+      .content-wrap .options .InputAddOn-Search .search-text-input {
+        flex: 1;
+        padding: 0.5em 0.75em;
+        font-size: 14px; }
+      .content-wrap .options .InputAddOn-Search .InputAddOn-item {
+        display: flex;
+        align-items: center;
+        background-color: #404040;
+        padding: 0.5em 0.75em;
+        color: white; }
   .content-wrap .original-post-wrap {
     display: flex;
     flex-direction: column;
@@ -90,8 +127,8 @@ ul {
   background-color: #404040;
   color: white; }
   .footer-wrap .footer-container-wrap {
-    height: 200px;
-    width: 1000px;
+    height: 100px;
+    max-width: 1000px;
     margin: auto;
     display: flex;
     flex-direction: row;

@@ -2,112 +2,78 @@
   Layout = "_Layout";
 }
 
-<div class="masthead-wrap">
-  <div class="header-wrap">
-    <div class="logo">
-      <h1>dialog</h1>
+<div class="options">
+  <div class="back-to-feed">
+    <button type="button" name="button">Back to feed icon</button>
+  </div>
+  <form class="search" id="search">
+    <div class="InputAddOn-Search">
+      <input type="text" class="search-text-input" id="search-text-input" placeholder="Search">
+      <span class="InputAddOn-item"><i class="fa fa-search" aria-hidden="true"></i></span>
     </div>
-    <div class="navigation" id="navigation">
-      <ul>
-        <li><a href="#" target="_blank">Item 1</a></li>
-        <li><a href="#" target="_blank">Item 2</a></li>
-        <li><a href="#" target="_blank">Item 3</a></li>
-      </ul>
-    </div>
+    @* <button type="button" name="button">Search icon</button> *@
+  </form>
+  <div class="create-post">
+    <button type="button" name="button" class="new-dialog">Start a new dialog</button>
   </div>
 </div>
 
-<div class="content-wrap">
-  <div class="options">
-    <div class="back-to-feed">
-      <button type="button" name="button">Back to feed icon</button>
+<div class="original-post-wrap">
+  <div class="subject-headline">
+    <h2>Original thread topic goes here</h2>
+  </div>
+  <div class="subject-wrap">
+    <div class="stats">
+      <h2>20 views</h2>
     </div>
-    <form class="search" id="search">
-      <input type="text" name="search" value="" id="search-text-input">
-      <label for="Search">Search</label>
-      <button type="button" name="button">Search icon</button>
-    </form>
-    <div class="create-post">
-      <button type="button" name="button">Start a new dialog</button>
+    <div class="author-wrap">
+    </div>
+    <div class="time-of-post">
+      <p>Poster Mar 7th 2017, 4 PM ESTA</p>
     </div>
   </div>
-  <div class="original-post-wrap">
-    <div class="subject-headline">
-      <h2>Original thread topic goes here</h2>
-    </div>
-    <div class="subject-wrap">
-      <div class="stats">
-        <h2>20 views</h2>
-      </div>
-      <div class="author-wrap">
-      </div>
-      <div class="time-of-post">
-        <p>Poster Mar 7th 2017, 4 PM ESTA</p>
-      </div>
-    </div>
-    <div class="subject-message">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-    </div>
-  </div>
-  <div class="reply-action-wrap">
-    <div class="add-reply">
-      <div class="reply-input-wrap hide">
-        <div class="avatar">
-        </div>
-        <div class="reply-form" id="reply-form">
-          <input type="text" name="author" id="reply-author" value="">
-          <input class="reply-input" id="reply-input">
-          <button type="button" name="button" class="reply">Reply</button>
-        </div>
-      </div>
-    </div>
-    <div class="sort-by">
-      <h3>Sort by</h3>
-      <ul class="hide">
-        <li>Most Recent</li>
-        <li>Most Helpful</li>
-        <li>Oldest</li>
-      </ul>
-    </div>
-  </div>
-  <div class="reply-output-wrap">
-    <div class="sample-output">
-      <div class="user-wrap">
-        <div class="avatar">
-        </div>
-        <div class="author">
-        </div>
-      </div>
-      <div class="time">
-      </div>
-      <div class="content">
-      </div>
-      <div class="feedback-sharing">
-      </div>
-    </div>
+  <div class="subject-message">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
   </div>
 </div>
-<div class="footer-wrap">
-  <div class="footer-container-wrap">
-    <div class="navigation">
-      <ul>
-        <li><a href="#" target="_blank">Item 1</a></li>
-        <li><a href="#" target="_blank">Item 2</a></li>
-        <li><a href="#" target="_blank">Item 3</a></li>
-      </ul>
+
+<div class="reply-action-wrap">
+  <div class="add-reply">
+    <div class="reply-input-wrap hide">
+      <div class="avatar">
+      </div>
+      <div class="reply-form" id="reply-form">
+        <input type="text" name="author" id="reply-author" value="">
+        <input class="reply-input" id="reply-input">
+        <button type="button" name="button" class="reply">Reply</button>
+      </div>
     </div>
-    <div class="social">
-      <ul>
-        <li>Mail icon</li>
-        <li>Facebook icon</li>
-        <li>Twitter icon</li>
-        <li>Youtube icon</li>
-      </ul>
+  </div>
+  <div class="sort-by">
+    <h3>Sort by</h3>
+    <ul class="hide">
+      <li>Most Recent</li>
+      <li>Most Helpful</li>
+      <li>Oldest</li>
+    </ul>
+  </div>
+</div>
+
+<div class="reply-output-wrap">
+  <div class="sample-output">
+    <div class="user-wrap">
+      <div class="avatar">
+      </div>
+      <div class="author">
+      </div>
     </div>
-    <div class="legal">
-      <p>Copyright 2017, All of our names</p>
+    <div class="time">
+    </div>
+    <div class="content">
+    </div>
+    <div class="feedback-sharing">
     </div>
   </div>
 </div>
