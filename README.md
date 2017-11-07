@@ -9,6 +9,7 @@
 * A user should be able to sort all of the posts by ascending or descending date.
 * A user will be able to reply to a thread by writing a message into a box at the bottom of the page, thy can also optionally supply a subject for that reply,
 a author name to use as opposed to "Anonymous" and an "Avatar" image representing their post.
+* A thread will only show 20 posts at once, and a thread page will show a "next page" button which will show the next 20 posts if there are more than 20.
 ### Searching
 * A User should be able to run a "search" on the home page. The search will return any matches on thread names, post content and post author.
 * Each Topic page will also have a search box, a search box used within that topic will only return what is found in relation to that topic.
