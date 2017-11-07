@@ -10,6 +10,7 @@ html, body {
 
 body {
   @include light-grey-gr;
+  font-family: sans-serif;
 }
 
 ul {
@@ -43,7 +44,6 @@ ul {
 .content-wrap {
   max-width: 1000px;
   height: calc(100% - 250px);
-  // padding: 10px;
   margin: auto;
   background-color: white;
   .options {
@@ -53,13 +53,11 @@ ul {
     padding: 0px 20px;
     .InputAddOn-Search {
       display: flex;
-      align-items: stretch;
       max-width: 300px;
-      // flex-direction: row;
       height: 40px;
       @include input-color;
       input[type=text]:focus {
-        border: 5px inset $lightOrange;
+        border: 1px inset $green1;
         outline: 0 none;
       }
       .search-text-input {
@@ -121,8 +119,29 @@ ul {
   }
 
 
+//Color Divs
+
+.color-wrap {
+  width: 1000px;
+  min-height: 200px;
+  // background-color: red;
+  display: flex;
+  @include color-divs;
+  .box {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
 @media screen and (max-width: 400px) {
   .content-wrap {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header-wrap {
+    width: calc(100% - 4em);
   }
 }

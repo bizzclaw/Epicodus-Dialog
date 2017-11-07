@@ -14,7 +14,8 @@ html, body {
   height: 100%; }
 
 body {
-  background: linear-gradient(to bottom, #BDBDBD 0%, #eeeeee 100%); }
+  background: linear-gradient(to bottom, #BDBDBD 0%, #eeeeee 100%);
+  font-family: sans-serif; }
 
 ul {
   display: flex;
@@ -61,7 +62,6 @@ ul {
     padding: 0px 20px; }
     .content-wrap .options .InputAddOn-Search {
       display: flex;
-      align-items: stretch;
       max-width: 300px;
       height: 40px; }
       .content-wrap .options .InputAddOn-Search ::-webkit-input-placeholder {
@@ -77,7 +77,7 @@ ul {
         /* Firefox 18- */
         color: #c1c1c1; }
       .content-wrap .options .InputAddOn-Search input[type=text]:focus {
-        border: 5px inset #e65100;
+        border: 1px inset #168914;
         outline: 0 none; }
       .content-wrap .options .InputAddOn-Search .search-text-input {
         flex: 1;
@@ -139,8 +139,29 @@ ul {
     background-color: #404040;
     height: auto; }
 
+.color-wrap {
+  width: 1000px;
+  min-height: 200px;
+  display: flex; }
+  .color-wrap #one {
+    background-color: #168914; }
+  .color-wrap #two {
+    background-color: #404040; }
+  .color-wrap #three {
+    background-color: #c1c1c1; }
+  .color-wrap #four {
+    background-color: #eeeeee; }
+  .color-wrap #five {
+    background-color: #BDBDBD; }
+  .color-wrap .box {
+    width: 100px;
+    height: 100px; }
+
 @media screen and (max-width: 400px) {
   .content-wrap {
     width: 100%; } }
+@media screen and (max-width: 1000px) {
+  .header-wrap {
+    width: calc(100% - 4em); } }
 
 /*# sourceMappingURL=styles.css.map */
