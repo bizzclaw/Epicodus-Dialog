@@ -45,7 +45,7 @@ namespace Dialog.Models
       _lastQuery = this;
     }
 
-    public void AddParameter(string key, string value)
+    public void AddParameter<T>(string key, T value)
     {
       MySqlParameter parameter = new MySqlParameter();
       parameter.ParameterName = key;

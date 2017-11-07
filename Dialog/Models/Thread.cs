@@ -22,10 +22,26 @@ namespace Dialog.Models
       Id = (int)saveThread.GetCommand().LastInsertedId;
     }
 
-    public List<Post> GetPosts()
+    public int CountPosts()
     {
-      Query getThreadPosts = new Query("SELECT * FROM POSTS WHERE thread_id = @ThreadId");
-      getThreadPosts.AddParameter("@ThreadId", Id.ToString());
+      Query countPosts = new Query("SELECT COUNT(*) FROM posts WHERE thread_id = @ThreadId");
+      countPosts.AddParameter("@ThreadId", Id);
+      
+      int count = 0;
+      var rdr = countPosts.Read();
+      while (rdr.Read())
+      {
+        count = rdr.GetInt32(0);
+      }
+      return count;
+    }
+
+    public List<Post> GetPosts(int start = 0, int end = 19)
+    {
+      Query getThreadPosts = new Query("SELECT * FROM posts WHERE thread_id = @ThreadId LIMIT @Start, @End");
+      getThreadPosts.AddParameter("@ThreadId", Id);
+      getThreadPosts.AddParameter("@Start", start);
+      getThreadPosts.AddParameter("@End", end);
       List<Post> threadPosts = new List<Post> {};
 
       var rdr = getThreadPosts.Read();

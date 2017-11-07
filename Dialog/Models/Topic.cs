@@ -22,10 +22,26 @@ namespace Dialog.Models
       Id = (int)saveTopic.GetCommand().LastInsertedId;
     }
 
-    public List<Thread> GetThreads()
+    public int CountThreads()
     {
-      Query getThreads = new Query("SELECT * FROM threads WHERE topic_id = @TopicId");
-      getThreads.AddParameter("@TopicId", Id.ToString());
+      Query countThreads = new Query("SELECT COUNT(*) FROM threads WHERE topic_id = @TopicId");
+      countThreads.AddParameter("@TopicId", Id);
+
+      int count = 0;
+      var rdr = countThreads.Read();
+      while (rdr.Read())
+      {
+        count = rdr.GetInt32(0);
+      }
+      return count;
+    }
+
+    public List<Thread> GetThreads(int start = 0, int end = 19)
+    {
+      Query getThreads = new Query("SELECT * FROM threads WHERE topic_id = @TopicId LIMIT @Start, @End");
+      getThreads.AddParameter("@TopicId", Id);
+      getThreads.AddParameter("@Start", start);
+      getThreads.AddParameter("@End", end);
       List<Thread> postThreads = new List<Thread> {};
 
       var rdr = getThreads.Read();
@@ -43,9 +59,13 @@ namespace Dialog.Models
 
     public void Delete()
     {
-      Query deleteTopics = new Query("DELETE FROM topics WHERE id = @TopicId");
-      deleteTopics.AddParameter("@TopicId", Id.ToString());
-      deleteTopics.Execute();
+      List<Thread> topicThreads = GetThreads(0, CountThreads());
+      foreach (Thread topicThread in topicThreads) {
+        topicThread.Delete();
+      }
+      Query deleteTopic = new Query(@"DELETE FROM topics WHERE id = @TopicId");
+      deleteTopic.AddParameter("@TopicId", Id.ToString());
+      deleteTopic.Execute();
     }
 
     public static Topic Find(int id)
@@ -86,7 +106,7 @@ namespace Dialog.Models
 
     public static void ClearAll()
     {
-      Query clearTopics = new Query("DElETE FROM topics");
+      Query clearTopics = new Query("DElETE FROM posts; DELETE FROM threads; DELETE FROM topics"); // more or less wipe the database.
       clearTopics.Execute();
     }
   }
