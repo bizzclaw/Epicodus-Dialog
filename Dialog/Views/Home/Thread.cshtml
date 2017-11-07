@@ -3,14 +3,17 @@
 }
 
 <div class="masthead-wrap">
-  <div class="logo">
-  </div>
-  <div class="navigation" id="navigation">
-    <ul>
-      <li><a href="#" target="_blank">Item 1</a></li>
-      <li><a href="#" target="_blank">Item 2</a></li>
-      <li><a href="#" target="_blank">Item 3</a></li>
-    </ul>
+  <div class="header-wrap">
+    <div class="logo">
+      <h1>dialog</h1>
+    </div>
+    <div class="navigation" id="navigation">
+      <ul>
+        <li><a href="#" target="_blank">Item 1</a></li>
+        <li><a href="#" target="_blank">Item 2</a></li>
+        <li><a href="#" target="_blank">Item 3</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -19,9 +22,9 @@
     <div class="back-to-feed">
       <button type="button" name="button">Back to feed icon</button>
     </div>
-    <form class="search">
-      <input type="text" name="search" value="">
-      <label for="Search"></label>
+    <form class="search" id="search">
+      <input type="text" name="search" value="" id="search-text-input">
+      <label for="Search">Search</label>
       <button type="button" name="button">Search icon</button>
     </form>
     <div class="create-post">
@@ -32,10 +35,14 @@
     <div class="subject-headline">
       <h2>Original thread topic goes here</h2>
     </div>
-    <div class="subject-masthead">
+    <div class="subject-wrap">
       <div class="stats">
+        <h2>20 views</h2>
       </div>
       <div class="author-wrap">
+      </div>
+      <div class="time-of-post">
+        <p>Poster Mar 7th 2017, 4 PM ESTA</p>
       </div>
     </div>
     <div class="subject-message">
@@ -49,15 +56,16 @@
       <div class="reply-input-wrap hide">
         <div class="avatar">
         </div>
-        <div class="reply-form">
-          <input class="reply-input">
+        <div class="reply-form" id="reply-form">
+          <input type="text" name="author" id="reply-author" value="">
+          <input class="reply-input" id="reply-input">
           <button type="button" name="button" class="reply">Reply</button>
         </div>
       </div>
     </div>
     <div class="sort-by">
       <h3>Sort by</h3>
-      <ul>
+      <ul class="hide">
         <li>Most Recent</li>
         <li>Most Helpful</li>
         <li>Oldest</li>
@@ -82,22 +90,24 @@
   </div>
 </div>
 <div class="footer-wrap">
-  <div class="navigation">
-    <ul>
-      <li><a href="#" target="_blank">Item 1</a></li>
-      <li><a href="#" target="_blank">Item 2</a></li>
-      <li><a href="#" target="_blank">Item 3</a></li>
-    </ul>
-  </div>
-  <div class="social">
-    <ul>
-      <li>Mail icon</li>
-      <li>Facebook icon</li>
-      <li>Twitter icon</li>
-      <li>Youtube icon</li>
-    </ul>
-  </div>
-  <div class="legal">
-    <p>Copyright 2017, All of our names</p>
+  <div class="footer-container-wrap">
+    <div class="navigation">
+      <ul>
+        <li><a href="#" target="_blank">Item 1</a></li>
+        <li><a href="#" target="_blank">Item 2</a></li>
+        <li><a href="#" target="_blank">Item 3</a></li>
+      </ul>
+    </div>
+    <div class="social">
+      <ul>
+        <li>Mail icon</li>
+        <li>Facebook icon</li>
+        <li>Twitter icon</li>
+        <li>Youtube icon</li>
+      </ul>
+    </div>
+    <div class="legal">
+      <p>Copyright 2017, All of our names</p>
+    </div>
   </div>
 </div>
