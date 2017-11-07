@@ -67,5 +67,18 @@ namespace Dialog.Models.Tests
       Topic findTopic = Topic.Find(testTopic.Id);
       Assert.AreNotEqual(testTopic.Name, findTopic.Name); // the found topic's Name will default to 0 because it can't be found
     }
+
+    [TestMethod]
+    public void GetThreads_ThreadInTopicMatchesReference_true()
+    {
+      Topic testTopic = new Topic(0, "Testing");
+      testTopic.Save();
+
+      Thread testThread = new Thread(0, testTopic.Id);
+      testThread.Save();
+
+      List<Thread> topicThreads = testTopic.GetThreads();
+      Assert.AreEqual(testThread.TopicId, topicThreads[0].TopicId);
+    }
   }
 }

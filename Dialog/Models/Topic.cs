@@ -22,11 +22,38 @@ namespace Dialog.Models
       Id = (int)saveTopic.GetCommand().LastInsertedId;
     }
 
+    public List<Thread> GetThreads()
+    {
+      Query getThreads = new Query("SELECT * FROM threads WHERE topic_id = @TopicId");
+      getThreads.AddParameter("@TopicId", Id.ToString());
+      List<Thread> postThreads = new List<Thread> {};
+
+      var rdr = getThreads.Read();
+      while (rdr.Read())
+      {
+        int threadId = rdr.GetInt32(0);
+        int topicId = rdr.GetInt32(1);
+
+        Thread memberThread = new Thread(threadId, topicId);
+
+        postThreads.Add(memberThread);
+      }
+      return postThreads;
+    }
+
+    public void Delete()
+    {
+      Query deleteTopics = new Query("DELETE FROM topics WHERE id = @TopicId");
+      deleteTopics.AddParameter("@TopicId", Id.ToString());
+      deleteTopics.Execute();
+    }
+
     public static Topic Find(int id)
     {
       Query findTopic = new Query("SELECT * FROM topics WHERE id = @Id");
       findTopic.AddParameter("@Id", id.ToString());
       var rdr = findTopic.Read();
+
 
       string name = "";
 
@@ -37,13 +64,6 @@ namespace Dialog.Models
 
       Topic foundTopic = new Topic(id, name);
       return foundTopic;
-    }
-
-    public void Delete()
-    {
-      Query deleteTopics = new Query("DELETE FROM topics WHERE id = @TopicId");
-      deleteTopics.AddParameter("@TopicId", Id.ToString());
-      deleteTopics.Execute();
     }
 
     public static List<Topic> GetAll()
