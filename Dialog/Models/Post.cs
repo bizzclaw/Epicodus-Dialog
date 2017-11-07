@@ -14,7 +14,7 @@ namespace Dialog.Models
     public string Author {get; set;}
     public string Avatar {get; set;}
 
-    public Post(int id = 0, int threadId = 0, string subject = "--", string message = "...", string date, string author = "Anonymous", string avatar = "")
+    public Post(int id = 0, int threadId = 0, string subject = "--", string message = "...", string date = "00-00-00 00:00:00", string author = "Anonymous", string avatar = "")
     {
       Id = id;
       ThreadId = threadId;
@@ -46,6 +46,7 @@ namespace Dialog.Models
       int threadId = 0;
       string subject = "";
       string message = "";
+      string date = "";
       string author = "";
       string avatar = "";
 
