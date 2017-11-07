@@ -16,6 +16,7 @@ namespace Dialog.Models.Tests
     public ThreadTests()
     {
       DB.DatabaseTest();
+      Post.ClearAll();
       Thread.ClearAll();
     }
 
@@ -90,10 +91,9 @@ namespace Dialog.Models.Tests
       Thread testThread = new Thread(0, 158);
       testThread.Save();
 
-      int threadId = testThread.Id;
       testThread.Delete();
 
-      Thread findThread = Thread.Find(threadId);
+      Thread findThread = Thread.Find(testThread.Id);
       Assert.AreNotEqual(testThread.TopicId, findThread.TopicId); // the found thread's TopicId will default to 0 because it can't be found
     }
   }
