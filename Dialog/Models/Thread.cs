@@ -26,7 +26,7 @@ namespace Dialog.Models
     {
       Query countPosts = new Query("SELECT COUNT(*) FROM posts WHERE thread_id = @ThreadId");
       countPosts.AddParameter("@ThreadId", Id);
-      
+
       int count = 0;
       var rdr = countPosts.Read();
       while (rdr.Read())
@@ -35,6 +35,7 @@ namespace Dialog.Models
       }
       return count;
     }
+
 
     public List<Post> GetPosts(int start = 0, int end = 19)
     {
@@ -60,6 +61,11 @@ namespace Dialog.Models
         threadPosts.Add(memberPost);
       }
       return threadPosts;
+    }
+
+    public Post GetOriginalPost()
+    {
+      return GetPosts(0, 1)[1];
     }
 
     public void ClearPosts()

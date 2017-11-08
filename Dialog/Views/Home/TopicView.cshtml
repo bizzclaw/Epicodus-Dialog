@@ -1,0 +1,42 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Dialog.Models;
+
+@if (Model.Threads.Count < 1) {
+  <h2>No Thread</h2>
+}
+else
+{
+  foreach(Thread thread in Model.Threads)
+  {
+    <div class = "thread-button">
+      <a href="/threads/@thread.Id/0">@thread.GetOriginalPost().Subject</a>
+    </div>
+  }
+}
+
+<form action="/threads/new/@Model.ThisTopic.Id" method="post">
+  <div class="form-group">
+    <h3 class = "text-center">Subject</h3>
+    <input type="text" class="form-control" name="thread-name" id="thread-name" required>
+  </div>
+
+  <div class="form-group">
+    <h3 class = "text-center">Post</h3>
+    <input type="text" class="form-control" name="thread-message" id="thread-message" required>
+  </div>
+
+  <div class="form-group">
+    <h3 class = "text-center">Author</h3>
+    <input type="text" class="form-control" name="thread-author" id="thread-author" value="Anonymous">
+  </div>
+
+  <div class="form-group">
+    <h3 class = "text-center">Avatar (Optional)</h3>
+    <input type="text" class="form-control" name="thread-avatar" id="thread-avatar">
+  </div>
+
+  <button type="submit" class="btn btn-default btn-wide">New Thread</button>
+</form>
