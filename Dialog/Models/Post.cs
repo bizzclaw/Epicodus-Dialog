@@ -36,6 +36,7 @@ namespace Dialog.Models
       savePost.AddParameter("@Avatar", Avatar);
       savePost.Execute();
       Id = (int)savePost.GetCommand().LastInsertedId;
+      savePost.Close();
     }
 
     public static Post Find(int id)
@@ -59,7 +60,7 @@ namespace Dialog.Models
         author = rdr.GetString(5);
         avatar = rdr.GetString(6);
       }
-
+      findPost.Close();
       Post foundPost = new Post(id, threadId, subject, message, date, author, avatar);
       return foundPost;
     }
@@ -91,6 +92,7 @@ namespace Dialog.Models
     {
       Query clearPosts = new Query("DElETE FROM posts");
       clearPosts.Execute();
+      clearPosts.Close();
     }
   }
 }

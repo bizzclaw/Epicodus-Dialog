@@ -10,6 +10,12 @@ namespace Dialog.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
+        return Redirect("/topics");
+      }
+
+      [HttpGet("/topics")]
+      public ActionResult Topics()
+      {
         List<Topic> allTopics = Topic.GetAll();
         return View(allTopics);
       }
@@ -83,18 +89,17 @@ namespace Dialog.Controllers
           Post originalPost = new Post(0, newThread.Id, subject ?? "ERROR", message ?? "ERROR", author ?? "ERROR", avatar);
           originalPost.Save();
 
-          return Redirect("/topics/" + topicId +  "/threads/" + newThread.Id + "/0");
+          return Redirect("/topics/" + topicId +  "/threads/" + newThread.Id + "/1");
         }
       }
 
       [HttpGet("/topics/{topicId}/threads/{threadId}/{start}")]
-      public ActionResult ThreadView(int topicId, int threadId, int start)
+      public ActionResult ThreadView(int topicId, int threadId, int start = 1)
       {
         Topic topic = Topic.Find(topicId);
         Thread thread = Thread.Find(threadId);
-
-        ThreadView threadView = new ThreadView(topic, thread, thread.GetPosts());
-        return View();
+        ThreadView threadView = new ThreadView(topic, thread, start);
+        return View(threadView);
       }
     }
 }

@@ -2,9 +2,11 @@
   Layout = "_Layout";
 }
 
+@using Dialog.Models;
+
 <div class="options">
   <div class="back-to-feed">
-    <a href="#">
+    <a href="/topics/@Model.ThisTopic.Id/0">
       <div class="cta">Back to topic</div>
       <div class="icon"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
     </a>
@@ -16,7 +18,7 @@
     </div>
   </form>
   <div class="new-dialog">
-    <a href="#">
+    <a href="/topics/@Model.ThisTopic.Id/threads/new">
       <div class="cta">New dialog</div>
       <div class="icon"><i class="fa fa-plus"></i></div>
     </a>
@@ -29,10 +31,10 @@
     </div>
     <div class="details-wrap">
       <div class="author-name">
-        <h3>Jonny Krakowtz</h3>
+        <h3>@( (Model.OriginalPost.Author.Length < 1) ? "Anonymous  #" + Model.OriginalPost.Id : Model.OriginalPost.Author)</h3>
       </div>
       <div class="stats">
-        <p>20 replies</p>
+        <p> @(Model.ThisThread.CountPosts() - 1) replies</p>
       </div>
       <div class="time-of-post">
         <p>Posted: 3/7/17 <br> 4PM EST</p>
@@ -40,9 +42,9 @@
     </div>
   </div>
   <div class="subject-message">
-    <h2>Original thread topic goes here</h2>
+    <h2> @Model.OriginalPost.Subject </h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      @Model.OriginalPost.Message
     </p>
   </div>
 </div>
