@@ -1,11 +1,45 @@
 //all buttons
 
-button {
+.new-dialog, .back-to-feed {
   height: 40px;
   border-radius: 2px;
-  padding: 10px;
+  // padding: 10px;
   box-shadow: 2px 2px 3px #d3d3d3;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
+  display: flex;
+  min-width: 140px;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#2F4D50;
+  color: white;
+  border-bottom: 2px solid #FB3F1D;
+  .cta {
+    flex: 1;
+    padding: 0px;
+    align-self: center;
+    font-size: 16px;
+    text-align: center;
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background-color: #FB3F1D;
+    i {
+      display: flex;
+      padding: 0px;
+      align-items: center;
+      font-size: 16px;
+      border: 0px;
+    }
+  }
+}
+
+button:focus {
+  border: auto;
+  outline: none;
 }
 
 @mixin input-color {
@@ -32,7 +66,3 @@ button {
         color: white;
       }
 }
-//start a new dialog
-// .new-dialog {
-//   background-color:
-// }
