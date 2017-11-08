@@ -75,10 +75,10 @@ namespace Dialog.Controllers
           Thread newThread = new Thread(0, topicId);
           newThread.Save();
 
-          string subject = Request.Form["thread-subject"];
-          string message = Request.Form["thread-message"];
-          string author = Request.Form["thread-author"];
-          string avatar = Request.Form["thread-avatar"];
+          string subject = Request.Form["post-subject"];
+          string message = Request.Form["post-message"];
+          string author = Request.Form["post-author"];
+          string avatar = Request.Form["post-avatar"];
 
           Post originalPost = new Post(0, newThread.Id, subject ?? "ERROR", message ?? "ERROR", author ?? "ERROR", avatar);
           originalPost.Save();
