@@ -1,9 +1,45 @@
-button {
+@import url("https://fonts.googleapis.com/css?family=Istok+Web|Lato:900");
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', sans-serif; }
+
+p {
+  font-family: 'Istok Web', sans-serif; }
+
+.new-dialog, .back-to-feed {
   height: 40px;
   border-radius: 2px;
-  padding: 10px;
   box-shadow: 2px 2px 3px #d3d3d3;
-  border: 2px solid transparent; }
+  border: 0px solid transparent;
+  display: flex;
+  min-width: 140px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2F4D50;
+  color: white;
+  border-bottom: 2px solid #FB3F1D; }
+  .new-dialog .cta, .back-to-feed .cta {
+    flex: 1;
+    padding: 0px;
+    align-self: center;
+    font-size: 16px;
+    text-align: center; }
+  .new-dialog .icon, .back-to-feed .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background-color: #FB3F1D; }
+    .new-dialog .icon i, .back-to-feed .icon i {
+      display: flex;
+      padding: 0px;
+      align-items: center;
+      font-size: 16px;
+      border: 0px; }
+
+button:focus {
+  border: auto;
+  outline: none; }
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -34,7 +70,7 @@ ul {
   display: none; }
 
 .masthead-wrap {
-  background-color: #168914;
+  background-color: #1A292C;
   color: white; }
   .masthead-wrap .header-wrap {
     display: flex;
@@ -153,6 +189,14 @@ ul {
     background-color: #eeeeee; }
   .color-wrap #five {
     background-color: #BDBDBD; }
+  .color-wrap #six {
+    background-color: #f9ce0c; }
+  .color-wrap #seven {
+    background-color: #6B8E9D; }
+  .color-wrap #eight {
+    background-color: #1A292C; }
+  .color-wrap #nine {
+    background-color: #FB3F1D; }
   .color-wrap .box {
     width: 100px;
     height: 100px; }

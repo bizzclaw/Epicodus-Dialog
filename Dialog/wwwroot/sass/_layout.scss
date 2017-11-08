@@ -25,13 +25,14 @@ ul {
   }
 }
 
+
 .hide {
   display: none;
 }
 
 
 .masthead-wrap {
-  background-color: $green1;
+  background-color: #1A292C;
   color: white;
   .header-wrap {
     @include flex-row-between;
