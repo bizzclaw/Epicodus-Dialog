@@ -29,7 +29,7 @@ namespace Dialog.Controllers
         if (name != "")
         {
           newTopic.Save();
-          return Redirect("/topics/" + newTopic.Id + "/threads/0");
+          return Redirect("/topics/" + newTopic.Id + "/0");
         }
         else
         {
@@ -37,7 +37,7 @@ namespace Dialog.Controllers
         }
       }
 
-      [HttpGet("/topics/{topicId}/threads/{start}")]
+      [HttpGet("/topics/{topicId}/{start}")]
       public ActionResult TopicView(int topicId, int start = 0)
       {
         Topic thisTopic = Topic.Find(topicId);
@@ -49,8 +49,15 @@ namespace Dialog.Controllers
         return View(topicView);
       }
 
-      [HttpPost("/topics/{topicId}/thread/new/")]
+      [HttpGet("/topics/{topicId}/threads/new")]
       public ActionResult NewThread(int topicId)
+      {
+        Topic thisTopic = Topic.Find(topicId);
+        return View(thisTopic);
+      }
+
+      [HttpPost("/topics/{topicId}/threads/new")]
+      public ActionResult AddThread(int topicId)
       {
         Topic verified = Topic.Find(topicId);
         if (verified.Name == "")
@@ -75,13 +82,13 @@ namespace Dialog.Controllers
       }
 
       [HttpGet("/topics/{topicId}/threads/{threadId}/{start}")]
-      public ActionResult ViewThread(int topicId, int threadId, int start)
+      public ActionResult ThreadView(int topicId, int threadId, int start)
       {
         Topic topic = Topic.Find(topicId);
         Thread thread = Thread.Find(threadId);
 
         ThreadView threadView = new ThreadView(topic, thread, thread.GetPosts());
-        return View(threadView);
+        return View();
       }
     }
 }

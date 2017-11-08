@@ -52,7 +52,7 @@ namespace Dialog.Models
         int threadId = rdr.GetInt32(1);
         string subject = rdr.GetString(2);
         string message = rdr.GetString(3);
-        string date = rdr.GetDateTime(4).ToString();
+        string date = "";
         string author = rdr.GetString(5);
         string avatar = rdr.GetString(6);
 
@@ -65,7 +65,7 @@ namespace Dialog.Models
 
     public Post GetOriginalPost()
     {
-      return GetPosts(0, 1)[1];
+      return GetPosts(0, 1)[0];
     }
 
     public void ClearPosts()
