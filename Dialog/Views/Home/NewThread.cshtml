@@ -4,25 +4,5 @@
 <!-- TODO: Replace this with Post partial -->
 
 <form action="/topics/@Model.Id/threads/new" method="post">
-  <div class="form-group">
-    <h3 class = "text-center">Subject</h3>
-    <input type="text" class="form-control" name="thread-subject" id="thread-subject" required>
-  </div>
-
-  <div class="form-group">
-    <h3 class = "text-center">Post</h3>
-    <input type="text" class="form-control" name="thread-message" id="thread-message" required>
-  </div>
-
-  <div class="form-group">
-    <h3 class = "text-center">Author</h3>
-    <input type="text" class="form-control" name="thread-author" id="thread-author" value="Anonymous">
-  </div>
-
-  <div class="form-group">
-    <h3 class = "text-center">Avatar (Optional)</h3>
-    <input type="text" class="form-control" name="thread-avatar" id="thread-avatar">
-  </div>
-
-  <button type="submit" class="btn btn-default btn-wide">New Thread</button>
+  @Html.Partial("Post")
 </form>

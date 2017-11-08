@@ -20,8 +20,14 @@ namespace Dialog.Controllers
         return View();
       }
 
-      [HttpPost("/topics/new")]
+      [HttpGet("/topics/new")]
       public ActionResult NewTopic()
+      {
+        return View();
+      }
+
+      [HttpPost("/topics/new")]
+      public ActionResult AddTopic()
       {
         string name = Request.Form["topic-name"];
         Topic newTopic = new Topic(0, name ?? "ERROR");
