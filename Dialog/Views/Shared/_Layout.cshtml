@@ -9,44 +9,10 @@
     <script src="/js/scripts.js"></script>
   </head>
   <body>
-    <div class="masthead-wrap">
-      <div class="header-wrap">
-        <div class="logo">
-          <h1><a href="#" target="_blank">dialog</a></h1>
-        </div>
-        <div class="navigation" id="navigation">
-          <ul>
-            <li><a href="#" target="_blank">ABOUT</a></li>
-            <li><a href="#" target="_blank">LOG IN</a></li>
-            <li><a href="#" target="_blank">CONTACT</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    @Html.Partial("Header")
     <div class="content-wrap">
     @RenderBody()
     </div>
-    <div class="footer-wrap">
-      <div class="footer-container-wrap">
-        <div class="navigation">
-          <ul>
-            <li><a href="#" target="_blank">ABOUT</a></li>
-            <li><a href="#" target="_blank">LOG IN</a></li>
-            <li><a href="#" target="_blank">CONTACT</a></li>
-          </ul>
-        </div>
-        <div class="social">
-          <ul>
-            <li><a href="#" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-        <div class="legal">
-          <p class="legal">Created by Epicodus students 2017</p>
-        </div>
-      </div>
-    </div>
+    @Html.Partial("Footer")
   </body>
 </html>
