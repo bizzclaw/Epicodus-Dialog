@@ -6,12 +6,8 @@ using Dialog.Models;
 namespace Dialog.Models.Tests
 {
   [TestClass]
-  public class TopicTests : IDisposable
+  public class TopicTests
   {
-
-    public void Dispose()
-    {
-    }
 
     public TopicTests()
     {
@@ -79,6 +75,20 @@ namespace Dialog.Models.Tests
 
       List<Thread> topicThreads = testTopic.GetThreads();
       Assert.AreEqual(testThread.TopicId, topicThreads[0].TopicId);
+    }
+
+    [TestMethod]
+    public void CountThreads_TwoThreadsInTopic_true()
+    {
+      Topic testTopic = new Topic(0, "Testing");
+      testTopic.Save();
+
+      Thread testThread = new Thread(0, testTopic.Id);
+      testThread.Save();
+
+      Thread testThread2 = new Thread(0, testTopic.Id);
+      testThread2.Save();
+      Assert.AreEqual(2, testTopic.CountThreads());
     }
   }
 }

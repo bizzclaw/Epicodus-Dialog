@@ -1,3 +1,18 @@
 @{
   Layout = "_Layout";
 }
+
+@using Dialog.Models;
+
+@if (Model.Count < 1) {
+  <h2>No Topics</h2>
+}
+else
+{
+  foreach(Topic topic in Model)
+  {
+    <div class = "topic-button">
+      <a href="/topics/@topic.Id/0">@topic.Name</a>
+    </div>
+  }
+}

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Dialog.Models;
+
+@if (Model.Threads.Count < 1) {
+  <h2>No Threads</h2>
+}
+else
+{
+  foreach(Thread thread in Model.Threads)
+  {
+    <div class = "thread-button">
+      <a href="/topics/@Model.ThisTopic.Id/threads/@thread.Id/0">@thread.GetOriginalPost().Subject</a>
+    </div>
+  }
+}
+
+<!--TODO: Turn this into a stlyed Button -->
+<a href = "/topics/@Model.ThisTopic.Id/threads/new">Add New Thread</a>

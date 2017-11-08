@@ -6,12 +6,8 @@ using Dialog.Models;
 namespace Dialog.Models.Tests
 {
   [TestClass]
-  public class PostTests : IDisposable
+  public class PostTests
   {
-
-    public void Dispose()
-    {
-    }
 
     public PostTests()
     {

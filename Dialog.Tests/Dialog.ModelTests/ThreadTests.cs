@@ -6,12 +6,8 @@ using Dialog.Models;
 namespace Dialog.Models.Tests
 {
   [TestClass]
-  public class ThreadTests : IDisposable
+  public class ThreadTests
   {
-
-    public void Dispose()
-    {
-    }
 
     public ThreadTests()
     {
@@ -95,6 +91,22 @@ namespace Dialog.Models.Tests
 
       Thread findThread = Thread.Find(testThread.Id);
       Assert.AreNotEqual(testThread.TopicId, findThread.TopicId); // the found thread's TopicId will default to 0 because it can't be found
+    }
+
+    [TestMethod]
+    public void CountPosts_TwoPostsInthread_true()
+    {
+      Thread testThread = new Thread(0);
+      testThread.Save();
+
+      Post testPost = new Post(0,testThread.Id, "Good Post", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
+      testPost.Save();
+
+      Post testPost2 = new Post(0,testThread.Id, "Good Post", "This is the first post EVER posted on THIS forum YAY", DB.GetNow(), "First user");
+      testPost2.Save();
+
+
+      Assert.AreEqual(2, testThread.CountPosts());
     }
   }
 }
