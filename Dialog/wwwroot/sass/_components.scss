@@ -1,9 +1,12 @@
 //all buttons
 
+a {
+  text-decoration: none;
+}
+
 .new-dialog, .back-to-feed {
-  height: 40px;
+  a {height: 40px;
   border-radius: 2px;
-  // padding: 10px;
   box-shadow: 2px 2px 3px #d3d3d3;
   border: 0px solid transparent;
   display: flex;
@@ -12,10 +15,10 @@
   align-items: center;
   background-color:#2F4D50;
   color: white;
-  border-bottom: 2px solid #FB3F1D;
+
   .cta {
     flex: 1;
-    padding: 0px;
+    padding: 0px 15px;
     align-self: center;
     font-size: 16px;
     text-align: center;
@@ -35,6 +38,11 @@
       border: 0px;
     }
   }
+  }
+}
+
+.back-to-feed a {
+  flex-direction: row-reverse;
 }
 
 button:focus {
@@ -61,7 +69,7 @@ button:focus {
   .InputAddOn-item {
         display: flex;
         align-items: center;
-        background-color: $darkGrey;
+        background-color: $lightBlueGrey;
         padding: 0.5em 0.75em;
         color: white;
       }

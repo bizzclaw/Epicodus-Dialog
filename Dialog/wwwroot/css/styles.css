@@ -5,7 +5,10 @@ h1, h2, h3, h4, h5 {
 p {
   font-family: 'Istok Web', sans-serif; }
 
-.new-dialog, .back-to-feed {
+a {
+  text-decoration: none; }
+
+.new-dialog a, .back-to-feed a {
   height: 40px;
   border-radius: 2px;
   box-shadow: 2px 2px 3px #d3d3d3;
@@ -15,27 +18,29 @@ p {
   justify-content: space-between;
   align-items: center;
   background-color: #2F4D50;
-  color: white;
-  border-bottom: 2px solid #FB3F1D; }
-  .new-dialog .cta, .back-to-feed .cta {
+  color: white; }
+  .new-dialog a .cta, .back-to-feed a .cta {
     flex: 1;
-    padding: 0px;
+    padding: 0px 15px;
     align-self: center;
     font-size: 16px;
     text-align: center; }
-  .new-dialog .icon, .back-to-feed .icon {
+  .new-dialog a .icon, .back-to-feed a .icon {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
     width: 40px;
     background-color: #FB3F1D; }
-    .new-dialog .icon i, .back-to-feed .icon i {
+    .new-dialog a .icon i, .back-to-feed a .icon i {
       display: flex;
       padding: 0px;
       align-items: center;
       font-size: 16px;
       border: 0px; }
+
+.back-to-feed a {
+  flex-direction: row-reverse; }
 
 button:focus {
   border: auto;
@@ -81,6 +86,15 @@ ul {
     max-width: 1000px;
     height: 150px;
     margin: auto; }
+    .masthead-wrap .header-wrap .logo a {
+      text-decoration: none;
+      color: white; }
+    .masthead-wrap .header-wrap .navigation a {
+      text-decoration: none;
+      font-size: 15px; }
+      .masthead-wrap .header-wrap .navigation a:hover {
+        text-decoration: underline;
+        color: #f9ce0c; }
 
 .content-wrap {
   max-width: 1000px;
@@ -122,9 +136,12 @@ ul {
       .content-wrap .options .InputAddOn-Search .InputAddOn-item {
         display: flex;
         align-items: center;
-        background-color: #404040;
+        background-color: #2F4D50;
         padding: 0.5em 0.75em;
         color: white; }
+      .content-wrap .options .InputAddOn-Search a {
+        color: white;
+        text-decoration: none; }
   .content-wrap .original-post-wrap {
     display: flex;
     flex-direction: column;
@@ -174,6 +191,17 @@ ul {
   .footer-wrap .navigation {
     background-color: #404040;
     height: auto; }
+    .footer-wrap .navigation a {
+      text-decoration: none;
+      font-size: 12px; }
+      .footer-wrap .navigation a:hover {
+        text-decoration: underline;
+        color: #f9ce0c; }
+  .footer-wrap .social a:hover {
+    color: #6B8E9D; }
+  .footer-wrap .legal {
+    font-size: 14px;
+    color: #eeeeee; }
 
 .color-wrap {
   width: 1000px;

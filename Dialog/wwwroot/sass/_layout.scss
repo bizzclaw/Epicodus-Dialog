@@ -39,6 +39,20 @@ ul {
     max-width: 1000px;
     height: 150px;
     margin: auto;
+    .logo a {
+      text-decoration: none;
+      color: white;
+    }
+    .navigation {
+      a {
+        text-decoration: none;
+        font-size: 15px;
+        &:hover {
+          text-decoration: underline;
+          color: $yellow;
+        }
+      }
+    }
   }
 }
 
@@ -67,6 +81,10 @@ ul {
         font-size: 14px;
       }
       @include Search-icon;
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
   .original-post-wrap {
@@ -116,6 +134,23 @@ ul {
     .navigation {
       background-color: $darkGrey;
       height: auto;
+      a {
+        text-decoration: none;
+        font-size: 12px;
+        &:hover {
+          text-decoration: underline;
+          color: $yellow;
+        }
+      }
+    }
+    .social {
+      a:hover {
+        color: $blueGrey;
+      }
+    }
+    .legal {
+      font-size: 14px;
+      color: $lightishGrey;
     }
   }
 
