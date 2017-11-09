@@ -162,6 +162,19 @@ ul {
     justify-content: center;
     align-items: center;
     background-color: #eee; }
+  .content-wrap .topic-button {
+    background: linear-gradient(90deg, transparent, white, transparent);
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee; }
+    .content-wrap .topic-button a {
+      color: inherit;
+      text-decoration: none; }
+      .content-wrap .topic-button a:hover {
+        text-decoration: underline; }
   .content-wrap .options {
     display: flex;
     flex-direction: row;
