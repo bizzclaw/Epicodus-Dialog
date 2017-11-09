@@ -85,8 +85,9 @@ namespace Dialog.Controllers
           string message = Request.Form["post-message"];
           string author = Request.Form["post-author"];
           string avatar = Request.Form["post-avatar"];
+          string date = DB.GetNow();
 
-          Post originalPost = new Post(0, newThread.Id, subject ?? "ERROR", message ?? "ERROR", author ?? "ERROR", avatar);
+          Post originalPost = new Post(0, newThread.Id, subject, message, date, author, avatar);
           originalPost.Save();
 
           return Redirect("/topics/" + topicId +  "/threads/" + newThread.Id + "/1");
@@ -100,6 +101,20 @@ namespace Dialog.Controllers
         Thread thread = Thread.Find(threadId);
         ThreadView threadView = new ThreadView(topic, thread, start);
         return View(threadView);
+      }
+
+      [HttpPost("/topics/{topicIs}/threads/{threadId}/reply")]
+      public ActionResult ThreadReply(int topicId, int threadId)
+      {
+        string subject = Request.Form["post-subject"];
+        string message = Request.Form["post-message"];
+        string author = Request.Form["post-author"];
+        string avatar = Request.Form["post-avatar"];
+        string date = DB.GetNow();
+
+        Post replyPost = new Post(0, threadId, subject, message, date, author, avatar);
+        replyPost.Save();
+        return Redirect("/topics/" + topicId + "/threads/ " + threadId +  "/1");
       }
     }
 }

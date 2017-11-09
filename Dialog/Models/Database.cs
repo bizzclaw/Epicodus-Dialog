@@ -20,8 +20,8 @@ namespace Dialog.Models
 
     public static string GetNow()
     {
-      DateTime currentDate = DateTime.Now;
-      return currentDate.ToString("yyy-MM-dd HH:mm:ss");
+      DateTime currentDate = DateTime.UtcNow;
+      return currentDate.ToString("yyyy-MM-dd HH:mm:ss");
     }
   }
 }

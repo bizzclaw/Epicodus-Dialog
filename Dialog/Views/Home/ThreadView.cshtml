@@ -26,31 +26,29 @@
 </div>
 
 <div class="category">
-  <h1>Category Name Goes Here</h1>
+  <h1>@Model.ThisTopic.Name</h1>
 </div>
 
 <div class="original-post-wrap">
   <div class="post-info">
     <div class="author-wrap">
-      <img src="http://static.wixstatic.com/media/217f5c_956ccad5e29f4522b39a6a8a0aba7526~mv2.jpg" alt="top dog">
+      <img src="@Model.OriginalPost.Avatar" alt="top dog">
     </div>
     <div class="details-wrap">
       <div class="author-name">
-        <h3>@( (Model.OriginalPost.Author.Length < 1) ? "Anonymous  #" + Model.OriginalPost.Id : Model.OriginalPost.Author)</h3>
+        <h3>@Model.OriginalPost.Author</h3>
       </div>
       <div class="stats">
         <p> @(Model.ThisThread.CountPosts() - 1) replies</p>
       </div>
-      <div class="time-of-post">
-        <p>Posted: 3/7/17 4PM&nbsp;EST</p>
+      <div class="time-of-post" value="@Model.OriginalPost.Date">
+        <!-- <p>Posted: 3/7/17 <br> 4PM EST</p> -->
       </div>
     </div>
   </div>
   <div class="subject-message">
     <h2> @Model.OriginalPost.Subject </h2>
-    <p>
-      @Model.OriginalPost.Message
-    </p>
+    <pre>@Model.OriginalPost.Message</pre>
   </div>
 </div>
 
@@ -76,25 +74,31 @@
   </div>
 </div>
 
+@foreach (Post post in Model.Posts)
+{
 
 <div class="reply-wrap">
   <div class="post-info">
     <div class="author-wrap">
-      <img src='https://78.media.tumblr.com/51734007dcfc664b8bceb6d4bf8332a0/tumblr_mxdpjroNy41relaado7_r1_500.gif' alt="cat wearing goggles">
+      <img src='@post.Avatar' alt="cat wearing goggles">
     </div>
     <div class="details-wrap">
       <div class="author-name">
-        <h3>Jan Krakowtz</h3>
+        <h3>@post.Author</h3>
       </div>
-      <div class="time-of-post">
-        <p>Posted: 3/7/17 4PM&nbsp;EST</p>
+      <div class="time-of-post" value="@post.Date">
       </div>
     </div>
   </div>
   <div class="subject-message">
-    <h2>Original thread topic goes here</h2>
-    <p>
-      Lorem ipsum dolor sit amet. This is a change to the second one.
-    </p>
+    <h2>@post.Subject</h2>
+    <pre>@post.Message</pre>
   </div>
 </div>
+}
+
+
+<form action="/topics/@Model.ThisTopic.Id/threads/@Model.ThisThread.Id/reply" method="post">
+  @Html.Partial("Post")
+  <button type="submit" class="btn btn-default btn-wide">Reply</button>
+</form>
