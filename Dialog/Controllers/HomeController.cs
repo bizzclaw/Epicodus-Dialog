@@ -103,7 +103,7 @@ namespace Dialog.Controllers
         return View(threadView);
       }
 
-      [HttpPost("/topics/{topicIs}/threads/{threadId}/reply")]
+      [HttpPost("/topics/{topicId}/threads/{threadId}/reply")]
       public ActionResult ThreadReply(int topicId, int threadId)
       {
         string subject = Request.Form["post-subject"];
