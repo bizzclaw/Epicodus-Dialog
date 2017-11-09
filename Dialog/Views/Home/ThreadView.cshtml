@@ -41,9 +41,9 @@
       <div class="stats">
         <p> @(Model.ThisThread.CountPosts() - 1) replies</p>
       </div>
-      <div class="time-of-post" value="@Model.OriginalPost.Date">
+      <p class="time-of-post" value="@Model.OriginalPost.Date">
         <!-- <p>Posted: 3/7/17 <br> 4PM EST</p> -->
-      </div>
+      </p>
     </div>
   </div>
   <div class="subject-message">
@@ -86,8 +86,8 @@
       <div class="author-name">
         <h3>@post.Author</h3>
       </div>
-      <div class="time-of-post" value="@post.Date">
-      </div>
+      <p class="time-of-post" value="@post.Date">
+      </p>
     </div>
   </div>
   <div class="subject-message">
