@@ -9,12 +9,7 @@ html, body {
 }
 
 body {
-  // @include light-grey-gr;
-  background-color: #6B8E9D;
-  // background-image: url('https://siri-cdn.appadvice.com/wp-content/appadvice-v2-media/2017/01/home_essentials_4550df8666d6559d4b0f5017bd022135-m.jpg');
-  // background-repeat: no-repeat;
-  // background-position: top;
-  // background-size: cover;
+  background-color: #eee;
   font-family: sans-serif;
 }
 
@@ -62,13 +57,25 @@ ul {
 }
 
 .content-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
   max-width: 1000px;
-  height: calc(100% - 250px);
+  min-height: calc(100% - 250px);
   margin: auto;
-  background-color: white;
+  background-color: #eee;
+  .category {
+    background: linear-gradient(90deg, transparent, white, transparent);
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+  }
   .options {
     @include flex-row-between;
-    background-color: #EEEEEE;
+    background-color: #eee;
     min-height: 100px;
     padding: 0px 20px;
     .InputAddOn-Search {
@@ -96,40 +103,41 @@ ul {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 50px 20px 20px 20px;
-    border: 1px solid #b7b9bc;
-    // padding: 20px;
+    background-color: white;
+    margin: 50px 20px 30px 20px;
+    box-shadow: 2px 2px 5px grey;
     .post-info {
       min-width: 150px;
       max-width: 200px;
       position: relative;
       display: flex;
       flex-direction: column;
-      background-color: $darkBlueGrey;
+      background-color: $lightBlueGrey;
       padding: 90px 20px 20px 20px;
       color: white;
-      // min-width: 200px;
       .author-wrap {
         display: flex;
         justify-content: center;
         align-items: center;
         align-self: center;
-        background-image: url('http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        // margin-right: 20px;
         width: 100px;
         height: 100px;
-        border-radius: 100%;
-        background-color: red;
-        border: 5px solid $lightBlueGrey;
         position: absolute;
         top: -30px;
         left: auto;
         right: auto;
         margin: auto;
-      }
+        overflow: hidden;
+        border-radius: 50%;
+        border: 5px solid $blueGrey;
+        box-shadow: 2px 3px 3px $darkBlueGrey;
+        img {
+          display: inline;
+          margin: 0 auto;
+          height: 100%;
+          width: auto;
+          }
+        }
       .details-wrap {
         .author-name, .stats, .time-of-post {
           padding-bottom: 10px;
@@ -138,7 +146,7 @@ ul {
     }
     .subject-message {
       margin: 20px 20px 20px 30px;
-      align-self: center; 
+      align-self: center;
       h2 {
         padding-bottom: 20px;
       }
@@ -146,7 +154,66 @@ ul {
     }
   }
 
+.reply-wrap {
+  box-shadow: 2px 2px 5px grey;
+  min-height: 200px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 50px 30px 50px;
+  .post-info {
+    min-width: 150px;
+    max-width: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $blueGrey;
+    padding: 90px 20px 20px 20px;
+    color: white;
+    .author-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: -30px;
+      left: auto;
+      right: auto;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 5px solid $lightBlueGrey;
+      box-shadow: 2px 3px 3px $darkBlueGrey;
+      img {
+        display: inline;
+        margin: 0 auto;
+        height: 100%;
+        width: auto;
+        }
+      }
+    .details-wrap {
+      .author-name, .stats, .time-of-post {
+        padding-bottom: 10px;
+      }
+    }
+  }
+  .subject-message {
+    margin: 20px 20px 20px 30px;
+    align-self: center;
+    h2 {
+      padding-bottom: 20px;
+    }
+    }
+  }
 
+.reply-wrap:nth-child(odd) {
+  .post-info {
+    background-color: #586a72;
+  }
+}
 
 .footer-wrap {
   background-color: $darkGrey;
@@ -179,21 +246,6 @@ ul {
       color: $lightishGrey;
     }
   }
-
-
-//Color Divs
-
-.color-wrap {
-  width: 1000px;
-  min-height: 200px;
-  // background-color: red;
-  display: flex;
-  @include color-divs;
-  .box {
-    width: 100px;
-    height: 100px;
-  }
-}
 
 
 @media screen and (max-width: 400px) {

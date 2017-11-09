@@ -55,7 +55,7 @@ html, body {
   height: 100%; }
 
 body {
-  background-color: #6B8E9D;
+  background-color: #eee;
   font-family: sans-serif; }
 
 ul {
@@ -97,17 +97,28 @@ ul {
         color: white; }
 
 .content-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
   max-width: 1000px;
-  height: calc(100% - 250px);
+  min-height: calc(100% - 250px);
   margin: auto;
-  background-color: white; }
+  background-color: #eee; }
+  .content-wrap .category {
+    background: linear-gradient(90deg, transparent, white, transparent);
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee; }
   .content-wrap .options {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #EEEEEE;
+    background-color: #eee;
     min-height: 100px;
     padding: 0px 20px; }
     .content-wrap .options .InputAddOn-Search {
@@ -146,16 +157,16 @@ ul {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 50px 20px 20px 20px;
-    border: 1px solid #b7b9bc; }
+    background-color: white;
+    margin: 50px 20px 30px 20px;
+    box-shadow: 2px 2px 5px grey; }
     .content-wrap .original-post-wrap .post-info {
       min-width: 150px;
       max-width: 200px;
       position: relative;
       display: flex;
       flex-direction: column;
-      background-color: #1A292C;
+      background-color: #2F4D50;
       padding: 90px 20px 20px 20px;
       color: white; }
       .content-wrap .original-post-wrap .post-info .author-wrap {
@@ -163,19 +174,22 @@ ul {
         justify-content: center;
         align-items: center;
         align-self: center;
-        background-image: url("http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg");
-        background-repeat: no-repeat;
-        background-size: contain;
         width: 100px;
         height: 100px;
-        border-radius: 100%;
-        background-color: red;
-        border: 5px solid #2F4D50;
         position: absolute;
         top: -30px;
         left: auto;
         right: auto;
-        margin: auto; }
+        margin: auto;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 5px solid #6B8E9D;
+        box-shadow: 2px 3px 3px #1A292C; }
+        .content-wrap .original-post-wrap .post-info .author-wrap img {
+          display: inline;
+          margin: 0 auto;
+          height: 100%;
+          width: auto; }
       .content-wrap .original-post-wrap .post-info .details-wrap .author-name, .content-wrap .original-post-wrap .post-info .details-wrap .stats, .content-wrap .original-post-wrap .post-info .details-wrap .time-of-post {
         padding-bottom: 10px; }
     .content-wrap .original-post-wrap .subject-message {
@@ -183,6 +197,55 @@ ul {
       align-self: center; }
       .content-wrap .original-post-wrap .subject-message h2 {
         padding-bottom: 20px; }
+
+.reply-wrap {
+  box-shadow: 2px 2px 5px grey;
+  min-height: 200px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 50px 30px 50px; }
+  .reply-wrap .post-info {
+    min-width: 150px;
+    max-width: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #6B8E9D;
+    padding: 90px 20px 20px 20px;
+    color: white; }
+    .reply-wrap .post-info .author-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: -30px;
+      left: auto;
+      right: auto;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 5px solid #2F4D50;
+      box-shadow: 2px 3px 3px #1A292C; }
+      .reply-wrap .post-info .author-wrap img {
+        display: inline;
+        margin: 0 auto;
+        height: 100%;
+        width: auto; }
+    .reply-wrap .post-info .details-wrap .author-name, .reply-wrap .post-info .details-wrap .stats, .reply-wrap .post-info .details-wrap .time-of-post {
+      padding-bottom: 10px; }
+  .reply-wrap .subject-message {
+    margin: 20px 20px 20px 30px;
+    align-self: center; }
+    .reply-wrap .subject-message h2 {
+      padding-bottom: 20px; }
+
+.reply-wrap:nth-child(odd) .post-info {
+  background-color: #586a72; }
 
 .footer-wrap {
   background-color: #404040;
@@ -210,32 +273,6 @@ ul {
   .footer-wrap .legal {
     font-size: 14px;
     color: #eeeeee; }
-
-.color-wrap {
-  width: 1000px;
-  min-height: 200px;
-  display: flex; }
-  .color-wrap #one {
-    background-color: #168914; }
-  .color-wrap #two {
-    background-color: #404040; }
-  .color-wrap #three {
-    background-color: #c1c1c1; }
-  .color-wrap #four {
-    background-color: #eeeeee; }
-  .color-wrap #five {
-    background-color: #BDBDBD; }
-  .color-wrap #six {
-    background-color: #f9ce0c; }
-  .color-wrap #seven {
-    background-color: #6B8E9D; }
-  .color-wrap #eight {
-    background-color: #1A292C; }
-  .color-wrap #nine {
-    background-color: #FB3F1D; }
-  .color-wrap .box {
-    width: 100px;
-    height: 100px; }
 
 @media screen and (max-width: 400px) {
   .content-wrap {
