@@ -2,8 +2,13 @@
 h1, h2, h3, h4, h5 {
   font-family: 'Lato', sans-serif; }
 
-p {
+p, pre {
   font-family: 'Istok Web', sans-serif; }
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap; }
 
 a {
   text-decoration: none; }
@@ -45,6 +50,51 @@ a {
 button:focus {
   border: auto;
   outline: none; }
+
+.reply-form {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  border-top: 1px solid white; }
+  .reply-form h4 {
+    text-align: center; }
+  .reply-form form {
+    display: flex;
+    flex-wrap: wrap; }
+    .reply-form form button {
+      height: 40px;
+      background-color: #2F4D50;
+      border-radius: 2px;
+      border: none;
+      box-shadow: none;
+      color: white;
+      font-size: 14px;
+      line-height: 0;
+      padding: 5px;
+      align-self: center;
+      margin: 20px auto;
+      width: 32%; }
+    .reply-form form .form-group {
+      margin-bottom: 10px;
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 33%; }
+      .reply-form form .form-group input {
+        height: 40px;
+        width: 100%;
+        padding: 5px;
+        margin: 5px; }
+      .reply-form form .form-group textarea {
+        height: 40px;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        margin-left: 5px;
+        margin-right: 5px; }
+    .reply-form form #text-area {
+      height: 100px;
+      width: 100%; }
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -188,15 +238,17 @@ ul {
         .content-wrap .original-post-wrap .post-info .author-wrap img {
           display: inline;
           margin: 0 auto;
-          height: 100%;
-          width: auto; }
+          width: 100%; }
       .content-wrap .original-post-wrap .post-info .details-wrap .author-name, .content-wrap .original-post-wrap .post-info .details-wrap .stats, .content-wrap .original-post-wrap .post-info .details-wrap .time-of-post {
         padding-bottom: 10px; }
-    .content-wrap .original-post-wrap .subject-message {
-      margin: 20px 20px 20px 30px;
-      align-self: center; }
-      .content-wrap .original-post-wrap .subject-message h2 {
-        padding-bottom: 20px; }
+
+.subject-message {
+  min-width: 0;
+  height: auto;
+  margin: 20px 20px 20px 30px;
+  align-self: center; }
+  .subject-message h2 {
+    padding-bottom: 20px; }
 
 .reply-wrap {
   box-shadow: 2px 2px 5px grey;

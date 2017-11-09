@@ -134,8 +134,7 @@ ul {
         img {
           display: inline;
           margin: 0 auto;
-          height: 100%;
-          width: auto;
+          width: 100%;
           }
         }
       .details-wrap {
@@ -144,17 +143,18 @@ ul {
         }
       }
     }
-    .subject-message {
-      margin: 20px 20px 20px 30px;
-      align-self: center;
-      h2 {
-        padding-bottom: 20px;
-      }
-      }
-    }
   }
+}
 
-
+.subject-message {
+  min-width: 0;
+  height: auto;
+  margin: 20px 20px 20px 30px;
+  align-self: center;
+  h2 {
+    padding-bottom: 20px;
+  }
+}
 
 
 

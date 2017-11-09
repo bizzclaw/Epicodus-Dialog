@@ -97,8 +97,10 @@
 </div>
 }
 
-
-<form action="/topics/@Model.ThisTopic.Id/threads/@Model.ThisThread.Id/reply" method="post">
-  @Html.Partial("Post")
-  <button type="submit" class="btn btn-default btn-wide">Reply</button>
-</form>
+<div class="reply-form">
+  <h4>Write a reply below:</h4>
+  <form action="/topics/@Model.ThisTopic.Id/threads/@Model.ThisThread.Id/reply" method="post">
+    @Html.Partial("Post")
+    <button type="submit" class="btn btn-default btn-wide">Reply</button>
+  </form>
+</div>
