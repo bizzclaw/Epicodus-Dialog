@@ -84,7 +84,7 @@ ul {
       height: 40px;
       @include input-color;
       input[type=text]:focus {
-        border: 1px inset $green1;
+        border: 1px inset $blueGrey;
         outline: 0 none;
       }
       .search-text-input {
@@ -153,6 +153,10 @@ ul {
       }
     }
   }
+
+
+
+
 
 .reply-wrap {
   box-shadow: 2px 2px 5px grey;
@@ -253,6 +257,66 @@ ul {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .reply-wrap {
+    flex-direction: column;
+    .post-info {
+      flex-basis: auto;
+      max-width: 100%;
+      justify-content: center;
+      .details-wrap {
+        align-self: center;
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .content-wrap .original-post-wrap {
+    display: flex;
+    flex-direction: column;
+    .post-info {
+      flex-basis: auto;
+      max-width: 100%;
+      justify-content: center;
+      .details-wrap {
+        align-self: center;
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .content-wrap .options {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+   .content-wrap .options {
+    justify-content: center;
+     padding: 20px;
+    //  flex-grow: 1;
+     .InputAddOn-Search {
+       order: 3;
+       max-width: auto;
+       min-width: 220px;
+       align-self: center;
+       margin: 10px;
+     }
+     .new-dialog, .back-to-feed {
+       min-width: 220px;
+       margin: 10px;
+       order: -1;
+     }
+   }
+}
+
 
 @media screen and (max-width: 1000px) {
   .header-wrap {

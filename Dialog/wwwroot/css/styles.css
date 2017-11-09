@@ -138,7 +138,7 @@ ul {
         /* Firefox 18- */
         color: #c1c1c1; }
       .content-wrap .options .InputAddOn-Search input[type=text]:focus {
-        border: 1px inset #168914;
+        border: 1px inset #6B8E9D;
         outline: 0 none; }
       .content-wrap .options .InputAddOn-Search .search-text-input {
         flex: 1;
@@ -277,6 +277,48 @@ ul {
 @media screen and (max-width: 400px) {
   .content-wrap {
     width: 100%; } }
+@media screen and (max-width: 500px) {
+  .reply-wrap {
+    flex-direction: column; }
+    .reply-wrap .post-info {
+      flex-basis: auto;
+      max-width: 100%;
+      justify-content: center; }
+      .reply-wrap .post-info .details-wrap {
+        align-self: center;
+        max-width: 100%;
+        text-align: center; }
+
+  .content-wrap .original-post-wrap {
+    display: flex;
+    flex-direction: column; }
+    .content-wrap .original-post-wrap .post-info {
+      flex-basis: auto;
+      max-width: 100%;
+      justify-content: center; }
+      .content-wrap .original-post-wrap .post-info .details-wrap {
+        align-self: center;
+        max-width: 100%;
+        text-align: center; } }
+@media screen and (max-width: 520px) {
+  .content-wrap .options {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px; } }
+@media screen and (max-width: 600px) {
+  .content-wrap .options {
+    justify-content: center;
+    padding: 20px; }
+    .content-wrap .options .InputAddOn-Search {
+      order: 3;
+      max-width: auto;
+      min-width: 220px;
+      align-self: center;
+      margin: 10px; }
+    .content-wrap .options .new-dialog, .content-wrap .options .back-to-feed {
+      min-width: 220px;
+      margin: 10px;
+      order: -1; } }
 @media screen and (max-width: 1000px) {
   .header-wrap {
     width: calc(100% - 4em); } }
