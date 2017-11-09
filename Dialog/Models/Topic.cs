@@ -19,6 +19,7 @@ namespace Dialog.Models
       Query saveTopic = new Query("INSERT INTO topics (name) VALUES (@Name)");
       saveTopic.AddParameter("@Name", Name);
       saveTopic.Execute();
+      saveTopic.Close();
       Id = (int)saveTopic.GetCommand().LastInsertedId;
     }
 
@@ -54,6 +55,7 @@ namespace Dialog.Models
 
         postThreads.Add(memberThread);
       }
+      getThreads.Close();
       return postThreads;
     }
 
@@ -66,6 +68,7 @@ namespace Dialog.Models
       Query deleteTopic = new Query(@"DELETE FROM topics WHERE id = @TopicId");
       deleteTopic.AddParameter("@TopicId", Id.ToString());
       deleteTopic.Execute();
+      deleteTopic.Close();
     }
 
     public static Topic Find(int id)
@@ -83,6 +86,7 @@ namespace Dialog.Models
       }
 
       Topic foundTopic = new Topic(id, name);
+      findTopic.Close();
       return foundTopic;
     }
 
@@ -101,6 +105,7 @@ namespace Dialog.Models
 
         allTopics.Add(memberTopic);
       }
+      getAllTopics.Close();
       return allTopics;
     }
 
@@ -108,6 +113,7 @@ namespace Dialog.Models
     {
       Query clearTopics = new Query("DElETE FROM posts; DELETE FROM threads; DELETE FROM topics"); // more or less wipe the database.
       clearTopics.Execute();
+      clearTopics.Close();
     }
   }
 }

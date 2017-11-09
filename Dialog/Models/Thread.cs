@@ -19,6 +19,7 @@ namespace Dialog.Models
       Query saveThread = new Query("INSERT INTO threads (topic_id) VALUES (@TopicId)");
       saveThread.AddParameter("@TopicId", TopicId.ToString());
       saveThread.Execute();
+      saveThread.Close();
       Id = (int)saveThread.GetCommand().LastInsertedId;
     }
 
@@ -33,11 +34,12 @@ namespace Dialog.Models
       {
         count = rdr.GetInt32(0);
       }
+      countPosts.Close();
       return count;
     }
 
 
-    public List<Post> GetPosts(int start = 0, int end = 19)
+    public List<Post> GetPosts(int start = 1, int end = 20)
     {
       Query getThreadPosts = new Query("SELECT * FROM posts WHERE thread_id = @ThreadId LIMIT @Start, @End");
       getThreadPosts.AddParameter("@ThreadId", Id);
@@ -60,19 +62,44 @@ namespace Dialog.Models
 
         threadPosts.Add(memberPost);
       }
+      getThreadPosts.Close();
       return threadPosts;
     }
 
     public Post GetOriginalPost()
     {
-      return GetPosts(0, 1)[0];
+      Query getOriginalPost = new Query("SELECT * FROM posts WHERE thread_id = @ThreadId LIMIT 0, 1");
+      getOriginalPost.AddParameter("@ThreadId", Id);
+
+      var rdr = getOriginalPost.Read();
+
+      int id = 0;
+      string subject = "";
+      string message = "";
+      string date = "";
+      string author = "";
+      string avatar = "";
+
+      while (rdr.Read())
+      {
+        id = rdr.GetInt32(0);
+        subject = rdr.GetString(2);
+        message = rdr.GetString(3);
+        date = "";
+        author = rdr.GetString(5);
+        avatar = rdr.GetString(6);
+      }
+      getOriginalPost.Close();
+      Post originalPost = new Post(id, Id, subject, message, author, date, avatar);
+      return originalPost;
     }
 
     public void ClearPosts()
     {
       Query clearPosts = new Query("DELETE FROM posts WHERE thread_id = @ThreadId");
-      clearPosts.AddParameter("@ThreadId", Id.ToString());
+      clearPosts.AddParameter("@ThreadId", Id);
       clearPosts.Execute();
+      clearPosts.Close();
     }
 
     public void Delete()
@@ -83,6 +110,7 @@ namespace Dialog.Models
       ");
       DeleteThread.AddParameter("@ThreadId", Id.ToString());
       DeleteThread.Execute();
+      DeleteThread.Close();
     }
 
     public static Thread Find(int id)
@@ -99,6 +127,7 @@ namespace Dialog.Models
       }
 
       Thread foundThread = new Thread(id, topicId);
+      findThread.Close();
       return foundThread;
     }
 
@@ -117,6 +146,7 @@ namespace Dialog.Models
 
         allThreads.Add(memberThread);
       }
+      getAllThreads.Close();
       return allThreads;
     }
 
@@ -124,6 +154,7 @@ namespace Dialog.Models
     {
       Query clearThreads = new Query("DElETE FROM threads");
       clearThreads.Execute();
+      clearThreads.Close();
     }
   }
 }

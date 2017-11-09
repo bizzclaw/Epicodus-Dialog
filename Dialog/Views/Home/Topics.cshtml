@@ -6,34 +6,34 @@
 
 <div class="options">
   <div class="back-to-feed">
-    <a href="/">
-      <div class="cta">Back to topics</div>
+    <a href="/#">
+      <div class="cta">Back to Index</div>
       <div class="icon"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
     </a>
   </div>
   <form class="search" id="search">
     <div class="InputAddOn-Search">
-      <input type="text" class="search-text-input" id="search-text-input" placeholder="Search Topic">
+      <input type="text" class="search-text-input" id="search-text-input" placeholder="Search">
       <span class="InputAddOn-item"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></span>
     </div>
   </form>
   <div class="new-dialog">
-    <a href="/topics/@Model.ThisTopic.Id/threads/new">
-      <div class="cta">New dialog</div>
+    <a href="/topics/new">
+      <div class="cta">New Topic</div>
       <div class="icon"><i class="fa fa-plus"></i></div>
     </a>
   </div>
 </div>
 
-@if (Model.Threads.Count < 1) {
-  <h2>No Dialogs</h2>
+@if (Model.Count < 1) {
+  <h2>No Topics</h2>
 }
 else
 {
-  foreach(Thread thread in Model.Threads)
+  foreach(Topic topic in Model)
   {
-    <div class = "thread-button">
-      <a href="/topics/@Model.ThisTopic.Id/threads/@thread.Id/0">@thread.GetOriginalPost().Subject</a>
+    <div class = "topic-button">
+      <a href="/topics/@topic.Id/0">@topic.Name</a>
     </div>
   }
 }

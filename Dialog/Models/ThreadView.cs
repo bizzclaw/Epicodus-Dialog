@@ -7,13 +7,15 @@ namespace Dialog.Models
   {
     public Topic ThisTopic {get; set;}
     public Thread ThisThread {get; set;}
+    public Post OriginalPost {get; set;}
     public List<Post> Posts {get; set;}
 
-    public ThreadView(Topic topic, Thread thread,List<Post> posts)
+    public ThreadView(Topic topic, Thread thread, int start)
     {
       ThisTopic = topic;
       ThisThread = thread;
-      Posts = posts;
+      OriginalPost = thread.GetOriginalPost();
+      Posts = thread.GetPosts((int)Math.Max(start, 1) );
     }
   }
 }

@@ -3,14 +3,36 @@ using MySql.Data.MySqlClient;
 
 namespace Dialog.Models
 {
-  public class Query : IDisposable
+  public class Query
   {
     private MySqlCommand _cmd;
     private MySqlConnection _conn;
 
     private Query _lastQuery;
 
-    public void Dispose()
+    public Query(string query)
+    {
+      if (_lastQuery != null)
+      {
+        _conn = _lastQuery.GetConnection();
+      }
+      else
+      {
+        _conn = DB.Connection();
+      }
+      _cmd = _conn.CreateCommand();
+      _conn.Open();
+      _cmd.CommandText = @query;
+      _lastQuery = this;
+    }
+
+    // ~Query()
+    // {
+    //   Console.WriteLine("Disposing Connection");
+    //   Close();
+    // }
+
+    public void Close()
     {
       _conn.Close();
       if (_conn != null)
@@ -27,22 +49,6 @@ namespace Dialog.Models
     public MySqlConnection GetConnection()
     {
       return _conn;
-    }
-
-    public Query(string query)
-    {
-      if (_lastQuery != null)
-      {
-        _conn = _lastQuery.GetConnection();
-      }
-      else
-      {
-        _conn = DB.Connection();
-      }
-      _cmd = _conn.CreateCommand();
-      _conn.Open();
-      _cmd.CommandText = @query;
-      _lastQuery = this;
     }
 
     public void AddParameter<T>(string key, T value)
