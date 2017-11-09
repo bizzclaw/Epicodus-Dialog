@@ -41,13 +41,8 @@
       <div class="stats">
         <p> @(Model.ThisThread.CountPosts() - 1) replies</p>
       </div>
-<<<<<<< HEAD
-      <div class="time-of-post">
-        <p>Posted: 3/7/17 4PM&nbsp;EST</p>
-=======
       <div class="time-of-post" value="@Model.OriginalPost.Date">
         <!-- <p>Posted: 3/7/17 <br> 4PM EST</p> -->
->>>>>>> front-end
       </div>
     </div>
   </div>
@@ -91,24 +86,11 @@
       <div class="author-name">
         <h3>@post.Author</h3>
       </div>
-<<<<<<< HEAD
-      <div class="time-of-post">
-        <p>Posted: 3/7/17 4PM&nbsp;EST</p>
-=======
       <div class="time-of-post" value="@post.Date">
->>>>>>> front-end
       </div>
     </div>
   </div>
   <div class="subject-message">
-<<<<<<< HEAD
-    <h2>Original thread topic goes here</h2>
-    <p>
-      Lorem ipsum dolor sit amet. This is a change to the second one.
-    </p>
-  </div>
-</div>
-=======
     <h2>@post.Subject</h2>
     <pre>@post.Message</pre>
   </div>
@@ -120,4 +102,3 @@
   @Html.Partial("Post")
   <button type="submit" class="btn btn-default btn-wide">Reply</button>
 </form>
->>>>>>> front-end
