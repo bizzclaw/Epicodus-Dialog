@@ -80,7 +80,7 @@
 <div class="reply-wrap">
   <div class="post-info">
     <div class="author-wrap">
-      <img src='@post.Avatar' alt="cat wearing goggles">
+      <img src="@( (post.Avatar.Length > 0) ? post.Avatar : "/img/avatar.png")" alt="">
     </div>
     <div class="details-wrap">
       <div class="author-name">
