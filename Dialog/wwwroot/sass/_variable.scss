@@ -10,40 +10,4 @@ $blueGrey: #6B8E9D;
 $darkBlueGrey: #1A292C;
 $lightBlueGrey: #2F4D50;
 $red: #FB3F1D;
-// $darkOrange: #dd2c00;
-// $lightOrange: #e65100;
-
-
-@mixin color-divs {
-  #one {
-    background-color: $green1;
-  }
-  #two {
-    background-color: $darkGrey;
-  }
-  #three {
-    background-color: $lightGrey;
-  }
-  #four {
-    background-color: #eeeeee; //lightish grey from gradient
-  }
-  #five {
-    background-color: #BDBDBD; //darkish grey from Gradient
-  }
-  #six {
-    background-color:#f9ce0c; //yellow
-  }
-  #seven {
-    background-color: #6B8E9D; //blue-grey
-  }
-  #eight {
-    background-color: #1A292C; //dark blue grey
-  }
-  #nine {
-    background-color: #FB3F1D; //red
-  }
-}
-
-//gradients
-
-// $body
+$border-color: #b7b9bc;
