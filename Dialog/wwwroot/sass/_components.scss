@@ -50,6 +50,8 @@ button:focus {
   outline: none;
 }
 
+
+
 .reply-form {
   width: 90%;
   margin: auto;
@@ -101,6 +103,10 @@ button:focus {
       width: 100%;
     }
   }
+}
+
+#new-thread {
+  margin-top: 20px;
 }
 
 @mixin input-color {
