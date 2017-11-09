@@ -32,8 +32,8 @@ else
 {
   foreach(Thread thread in Model.Threads)
   {
-    <div class = "thread-button">
-      <a href="/topics/@Model.ThisTopic.Id/threads/@thread.Id/0">@thread.GetOriginalPost().Subject</a>
+    <div class = "topic-button">
+      <a href="/topics/@Model.ThisTopic.Id/threads/@thread.Id/0"><h2>@thread.GetOriginalPost().Subject</h2></a>
     </div>
   }
 }
