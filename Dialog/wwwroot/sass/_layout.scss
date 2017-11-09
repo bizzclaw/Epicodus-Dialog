@@ -73,6 +73,22 @@ ul {
     align-items: center;
     background-color: #eee;
   }
+  .topic-button {
+    background: linear-gradient(90deg, transparent, white, transparent);
+    display: flex;
+    padding: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
   .options {
     @include flex-row-between;
     background-color: #eee;
