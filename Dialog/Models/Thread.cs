@@ -54,11 +54,11 @@ namespace Dialog.Models
         int threadId = rdr.GetInt32(1);
         string subject = rdr.GetString(2);
         string message = rdr.GetString(3);
-        string date = "";
+        string date = rdr.GetDateTime(4).ToString();
         string author = rdr.GetString(5);
         string avatar = rdr.GetString(6);
 
-        Post memberPost = new Post(id, threadId, subject, message, author, date, avatar);
+        Post memberPost = new Post(id, threadId, subject, message, date, author, avatar);
 
         threadPosts.Add(memberPost);
       }
@@ -85,12 +85,12 @@ namespace Dialog.Models
         id = rdr.GetInt32(0);
         subject = rdr.GetString(2);
         message = rdr.GetString(3);
-        date = "";
+        date = rdr.GetDateTime(4).ToString();
         author = rdr.GetString(5);
         avatar = rdr.GetString(6);
       }
       getOriginalPost.Close();
-      Post originalPost = new Post(id, Id, subject, message, author, date, avatar);
+      Post originalPost = new Post(id, Id, subject, message, date, author, avatar);
       return originalPost;
     }
 
