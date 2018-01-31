@@ -1,3 +1,38 @@
+# Dialog
+Valia Dempsey, Susannah Lowe, Joseph Tomlinson, Rakhee Gandhi
+
+![preview](https://raw.githubusercontent.com/bizzclaw/Epicodus-Dialog/master/preview.png)
+
+Dialog is an open ended web forum designed to enable communities to share ideas in a clean and efficient way.
+
+Website is designed used ASP .NET framework using C#, HTML5 and CSS.
+
+Being a collaborative project, Dialog was created by a group of developers with a diverse skill set in design and backend, as a result, accommodating the experience of and workflow of these different development approaches was also part of the project.
+
+## Build Instructions
+
+### Requirements for building
+__.NET 1.1 SDK__ [Windows](https://download.microsoft.com/download/F/4/F/F4FCB6EC-5F05-4DF8-822C-FF013DF1B17F/dotnet-dev-win-x64.1.1.4.exe) | [Mac OSX](https://download.microsoft.com/download/F/4/F/F4FCB6EC-5F05-4DF8-822C-FF013DF1B17F/dotnet-dev-osx-x64.1.1.4.pkg)
+
+__.NET Runtime__ [Windows](https://download.microsoft.com/download/6/F/B/6FB4F9D2-699B-4A40-A674-B7FF41E0E4D2/dotnet-win-x64.1.1.4.exe) | [Max OSX](https://download.microsoft.com/download/6/F/B/6FB4F9D2-699B-4A40-A674-B7FF41E0E4D2/dotnet-osx-x64.1.1.4.pkg)
+
+__MySQL Server__ [NAMP](https://www.mamp.info/en/) | [MySQL Workbench](https://www.mysql.com/products/workbench/)
+
+__GIT CLI__ [Git-SCM](https://git-scm.com/downloads)
+
+
+### Instructions
+Clone with git or download as a zip file and extract to a directory on your machine.
+
+### Sql Setup
+In order to load the proper information into a database, some tables must be created.
+You can create these tables by importing the dialog.sql file using your database manager.
+
+## Build Instructions
+1. Clone with git to your local machine.
+2. cd into `epicodus-dialog/dialog` with your terminal/command prompt.
+3. run `dotnet restore`, this will install needed packaged for the app.
+4. run `dotnet run`, this will run the app from the IP of the machine with the port: 5000.
 
 ## Client Stories
 ### Pages and Views

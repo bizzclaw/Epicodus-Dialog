@@ -11,7 +11,7 @@
 -- ---
 DROP DATABASE IF EXISTS dialog_test;
 CREATE DATABASE dialog_test;
-USE dialog_test;
+USE dialog;
 
 
 DROP TABLE IF EXISTS `posts`;
